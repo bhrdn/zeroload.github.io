@@ -68,6 +68,7 @@ theme: next
 theme_config:
   math:
     enable: true
+    engine: mathjax
   scheme: Muse
   # scheme: Mist
   # scheme: Pisces
