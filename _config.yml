@@ -66,6 +66,8 @@ pagination_dir: page
 theme: next
 
 theme_config:
+  math:
+    enable: true
   scheme: Muse
   # scheme: Mist
   # scheme: Pisces
