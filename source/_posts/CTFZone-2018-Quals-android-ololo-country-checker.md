@@ -97,7 +97,7 @@ kj1234c1.bin 76240
 kjwqre32.bin 76240
 mvke321kjd.bin 76240
 ```
-Okay, this is getting interesting. The data we have are the same size, moreover it's a xxx of 16 `(76240 % 16 == 0)`. The fact that all the data dosn't make sense, we can assume that we are dealing with some sort of block cipher later.
+Okay, this is getting interesting. The data we have are the same size, moreover it's a multiples of 16 `(76240 % 16 == 0)`. The fact that all the data dosn't make sense, we can assume that we are dealing with some sort of block cipher later.
 
 `checkSomethings(int var1)` is a native function, so we have to open libnative-lib.so in disassembler/decompiler.
 
@@ -188,7 +188,7 @@ Run the app, attach frida with the script above, boom, got the flag,
 ![](/img/ctfzone2018/ololo1.png)
 ![](/img/ctfzone2018/ololo2.png)
 
-<center>`FLAG : ctfzone{1t_1s_0l0l0_g00d_4tt6mpt`</center>
+<center>`FLAG : ctfzone{1t_1s_0l0l0_g00d_4tt6mpt}`</center>
 
 ----------------------
 
