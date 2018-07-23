@@ -107,4 +107,4 @@ theme_config:
 deploy:
   type: git
   repo: git@github.com:zeroload/zeroload.github.io.git
-  branch: master
+  branch: gh-pages
