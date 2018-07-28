@@ -57,53 +57,81 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 3
+per_page: 0
 pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: cactus
 
 theme_config:
-  math:
-    enable: true
-    engine: mathjax
-  scheme: Muse
-  # scheme: Mist
-  # scheme: Pisces
-  # scheme: Gemini
-  custom_logo:
-    enabled: true
-    image: /img/0x27.png
-  favicon:
-    small: /img/favicon-16x16.png
-    medium: /img/favicon-32x32.png
-    apple_touch_icon: /img/apple-touch-icon.png
-  creative_commons: by-nc-sa
-  highlight_theme: night bright
+  nav:
+    home: /
+    articles: /archives/
+    rss: /atom.xml
+  colorscheme: dark
+  posts_overview:
+    show_all_posts: true
+  social_links:
+    github:  https://github.com/zeroload
+    twitter: https://twitter.com/zer0load
+    youtube: https://www.youtube.com/channel/UCH6CPf10u9uQu3w1DRhOliw
+  rss: atom.xml
   disqus:
-    enable: true
+    enabled: true
     shortname: zeroload-github-io
-    lazyload: true
-  menu:
-    Home: /
-    RSS: /atom.xml
-  social:
-    GitHub: https://github.com/zeroload || github
-    Twitter: https://twitter.com/zer0load || twitter
-    YouTube: https://www.youtube.com/channel/UCH6CPf10u9uQu3w1DRhOliw || youtube
-  # google_analytics:
-  font:
-    enable: true
-    global:
-      external: true
-      family: Roboto Condensed
-      size: 16
-    codes:
-      external: true
-      family: Roboto Mono
-      size: 14
+  highlight: codepen-embed
+  logo:
+    url: /img/0x27.png
+  favicon:
+    desktop:
+      url: /img/favicon.ico
+    android:
+      url: /img/favicon-96x96.png
+    apple:
+      url: /img/apple-touch-icon.png
+# theme: next
+
+# theme_config:
+#   math:
+#     enable: true
+#     engine: mathjax
+#   scheme: Muse
+#   # scheme: Mist
+#   # scheme: Pisces
+#   # scheme: Gemini
+#   custom_logo:
+#     enabled: true
+#     image: /img/0x27.png
+#   favicon:
+#     small: /img/favicon-16x16.png
+#     medium: /img/favicon-32x32.png
+#     apple_touch_icon: /img/apple-touch-icon.png
+#   creative_commons: by-nc-sa
+#   highlight_theme: night bright
+#   disqus:
+#     enable: true
+#     shortname: zeroload-github-io
+#     lazyload: true
+#   menu:
+#     Home: /
+#     RSS: /atom.xml
+#   social:
+#     GitHub:  https://github.com/zeroload || github
+#     Twitter: https://twitter.com/zer0load || twitter
+#     YouTube: https://www.youtube.com/channel/UCH6CPf10u9uQu3w1DRhOliw || youtube
+#   # google_analytics:
+#   font:
+#     enable: true
+#     global:
+#       external: true
+#       family: Roboto Condensed
+#       size: 16
+#     codes:
+#       external: true
+#       family: Roboto Mono
+#       size: 14
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
