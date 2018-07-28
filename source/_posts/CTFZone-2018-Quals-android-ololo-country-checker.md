@@ -8,12 +8,12 @@ tags:
 ---
 
 > It's a foreign android application. Let's try to guess the country!
-> Solves : 9
-> Point : 314. (Dynamic Score)
-> Download : 
-> - [ololo.8ed245a0a90f801ebf8ccf0676564ff1](https://ctf.bi.zone/files/ololo.8ed245a0a90f801ebf8ccf0676564ff1)
-> - [native-lib.c](/img/ctfzone2018/native-lib.c)
-> - [MainActivity.java](/img/ctfzone2018/MainActivity.java)
+> <br>Solves : 9
+> <br>Point : 314. (Dynamic Score)
+> <br>Download : 
+> <br>- [ololo.8ed245a0a90f801ebf8ccf0676564ff1](https://ctf.bi.zone/files/ololo.8ed245a0a90f801ebf8ccf0676564ff1)
+> <br>- [native-lib.c](/img/ctfzone2018/native-lib.c)
+> <br>- [MainActivity.java](/img/ctfzone2018/MainActivity.java)
 
 ```sh
 λ › file ololo.8ed245a0a90f801ebf8ccf0676564ff1
