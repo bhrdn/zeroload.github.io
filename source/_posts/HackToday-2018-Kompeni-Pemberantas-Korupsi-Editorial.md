@@ -38,7 +38,8 @@ Perlu dilakukan beberapa validasi bagaimana binary memproses data PNG, untuk itu
 
 ```
 ... warna hitam
-00000000  7f 4b 50 4b c8 00 00 00  c8 00 00 00 ff 00 00 00  00000010  ff 00 00 00 ff 00 00 00  ff 00 00 00 ff 00 00 00
+00000000  7f 4b 50 4b c8 00 00 00  c8 00 00 00 ff 00 00 00
+00000010  ff 00 00 00 ff 00 00 00  ff 00 00 00 ff 00 00 00
 ... warna putih
 00000000  7f 4b 50 4b c8 00 00 00  c8 00 00 00 ff ff ff ff
 00000010  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff
