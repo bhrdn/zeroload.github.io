@@ -2,9 +2,6 @@
 title: JOINTS 2018 - Simple VM WriteUp
 categories: rev
 date: 2018-05-07 18:14:01
-tags:
-  - vm
-  - joints-2018
 ---
 
 _psst: Post ini akan banyak sisipan rant dan commentary saat sesi Final JOINTS 2018._ Hasil decompile binary ELF di IDA pro agak cukup berantakan, Jadi, saya buka di graph view untuk analisa opcode. Hasilnya, agak terhambat di bagian byte 0xD1 - 0xD5. Tapi, akhirnya source code soal dibagikan saat menjelang akhir lomba. btw, kalau bisa ada hint yang di keluarkan tolong diumumkan langusng, ehe. cc: panitia Source code soal _redacted_,

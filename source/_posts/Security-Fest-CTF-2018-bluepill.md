@@ -2,9 +2,6 @@
 title: Security Fest CTF 2018 - bluepill
 date: 2018-06-02 16:12
 categories: rev
-tags:
-- kernel
-- secutiyfestctf-2018
 ---
 
 > This your last chance. After this there is no turning back. You take the blue pill, the story ends. You wake up in your bed and believe whatever you want to. You take the red pill, you stay in Wonderland, and I show you how deep the rabbit hole goes. Remember, all I'm offering is the truth. Nothing more. This challenge was sponsored by ATEA! If you are a local student player you are eligible to turn in the flag at the ATEA booth for a prize!

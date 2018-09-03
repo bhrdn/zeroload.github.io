@@ -1,8 +1,5 @@
 ---
 title: SharifCTF 2018 - fHash Writeup
-tags:
-  - hash
-  - sharifctf-2018
 categories: crypto
 date: 2018-02-04 16:16:15
 ---

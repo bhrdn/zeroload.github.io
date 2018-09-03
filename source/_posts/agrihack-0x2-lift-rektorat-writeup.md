@@ -3,7 +3,7 @@ title: AgriHack 0x2 - Lift Rektorat Writeup
 url: 348.html
 id: 348
 categories:
-  - ctf-writeup
+  - pwn
 date: 2017-11-24 00:38:01
 tags:
 ---

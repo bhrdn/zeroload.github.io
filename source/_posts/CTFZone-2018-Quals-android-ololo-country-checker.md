@@ -2,9 +2,6 @@
 title: CTFZone 2018 Quals - android_ololo_country_checker
 date: 2018-07-23 08:21:09
 categories: rev
-tags:
-- android
-- ctfzone-2018
 ---
 
 > It's a foreign android application. Let's try to guess the country!

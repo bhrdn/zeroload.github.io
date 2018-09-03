@@ -2,9 +2,6 @@
 title: IDSECCONF 2017 Online - Darwin Writeup
 date: 2017-12-12 20:02:30
 categories: rev
-tags:
-  - idsecconf-2017
-  - z3
 ---
 
 > Darwin (??? pts) [Download](https://a.safe.moe/Ph9RJ.zip) Reverse Engineering Mach-O executable

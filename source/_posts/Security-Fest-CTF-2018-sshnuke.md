@@ -2,9 +2,6 @@
 title: Security Fest CTF 2018 - sshnuke
 date: 2018-06-02 10:52
 categories: pwn
-tags:
-- secutiyfestctf-2018
-- arm
 ---
 
 > Security Fest CTF 2018 - sshnuke

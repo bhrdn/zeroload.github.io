@@ -1,8 +1,5 @@
 ---
 title: SECCON 2017 - Powerful_Shell Writeup
-tags:
-  - seccon-2017
-  - powershell
 categories: rev
 date: 2017-12-11 10:27:58
 ---

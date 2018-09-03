@@ -2,10 +2,6 @@
 title: SlashRoot 2018 - SNOW LAN(D)
 date: 2018-07-28 22:29:20
 categories: rev
-tags:
-  - slashroot-2018
-  - android
-  - game
 ---
 
 > Download : [SNOW LAN(D).apk]()

@@ -2,8 +2,6 @@
 title: TUCTF 2017 - Reverse Engineering Writeup
 categories: rev
 date: 2017-11-27 18:01:11
-tags:
-  - tuctf-2017
 ---
 
 # Funmail

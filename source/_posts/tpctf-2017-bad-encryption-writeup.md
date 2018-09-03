@@ -2,8 +2,6 @@
 title: TPCTF 2017 - Bad Encryption Writeup
 categories: rev
 date: 2017-12-07 12:30:54
-tags:
-  - tpctf-2017
 ---
 
 > I was making an encryption program, but it is far from perfect. Instead of make the encryption work, I decided to just encrypt everything 100 times. Hint : I bet the encryption works at least most of the time.

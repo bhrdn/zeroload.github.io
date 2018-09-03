@@ -3,9 +3,6 @@ title: INCTF 2017 - Secure Auth Writeup
 categories:
   - rev
   - web
-tags:
-  - inctf-2017
-  - unicorn-engine
 date: 2017-12-17 23:06:26
 ---
 
