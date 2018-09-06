@@ -4,6 +4,14 @@ date: 2018-09-05 22:42:44
 categoriess: rev
 ---
 
+> Downloads:
+>
+> [id.hacktoday.thisis.not.a.game.apk](/assets/hacktoday/notagame/id.hacktoday.thisis.not.a.game.apk)
+>
+> [solver.py](/assets/hacktoday/notagame/unluac.py)
+> 
+> [xxtea.py](/assets/hacktoday/notagame/xxtea.py)
+
 ```
 cocos2dlua, Kill the Bug
 ```
