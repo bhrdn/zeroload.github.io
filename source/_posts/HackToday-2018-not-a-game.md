@@ -1,7 +1,7 @@
 ---
 title: HackToday 2018 - not /a/game
 date: 2018-09-05 22:42:44
-categoriess: rev
+categories: rev
 ---
 
 > Downloads:
