@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Downloads: kpk draw_chess.py chess.png chess.png.kpk flag.png.kpk flag_recovered.png solver.py  Ada beberapa cara yang dapat dilakukan untuk solve problem seperti ini, yang agak lebih mudah yaitu mel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackToday 2018 - Kompeni Pemberantas Korupsi">
+<meta property="og:url" content="https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="Downloads: kpk draw_chess.py chess.png chess.png.kpk flag.png.kpk flag_recovered.png solver.py  Ada beberapa cara yang dapat dilakukan untuk solve problem seperti ini, yang agak lebih mudah yaitu mel">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zeroload.github.io/assets/hacktoday/kpk/flag_recovered.png">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HackToday 2018 - Kompeni Pemberantas Korupsi">
+<meta name="twitter:description" content="Downloads: kpk draw_chess.py chess.png chess.png.kpk flag.png.kpk flag_recovered.png solver.py  Ada beberapa cara yang dapat dilakukan untuk solve problem seperti ini, yang agak lebih mudah yaitu mel">
+<meta name="twitter:image" content="https://zeroload.github.io/assets/hacktoday/kpk/flag_recovered.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>HackToday 2018 - Kompeni Pemberantas Korupsi</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/09/03/HackToday-2018-faile/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/04/Post-Event-HackToday-2018-Quals/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&text=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&is_video=false&description=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HackToday 2018 - Kompeni Pemberantas Korupsi&body=Check out this article: https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&name=HackToday 2018 - Kompeni Pemberantas Korupsi&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        HackToday 2018 - Kompeni Pemberantas Korupsi
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-08-05T10:52:20.000Z" itemprop="datePublished">2018-08-05</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>Downloads:</p>
+<p><a href="/assets/hacktoday/kpk/kpk">kpk</a></p>
+<p><a href="/assets/hacktoday/kpk/draw_chess.py">draw_chess.py</a></p>
+<p><a href="/assets/hacktoday/kpk/chess.png">chess.png</a></p>
+<p><a href="/assets/hacktoday/kpk/chess.png.kpk">chess.png.kpk</a></p>
+<p><a href="/assets/hacktoday/kpk/flag.png.kpk">flag.png.kpk</a></p>
+<p><a href="/assets/hacktoday/kpk/flag_recovered.png">flag_recovered.png</a></p>
+<p><a href="/assets/hacktoday/kpk/solver.py">solver.py</a></p>
+</blockquote>
+<p>Ada beberapa cara yang dapat dilakukan untuk solve problem seperti ini, yang agak lebih mudah yaitu melakukan blackbox dengan fuzzing file input dan check file output yang dihasilkan. Berikut contoh script untuk menghasilkan file input (PNG),</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">width, height = (<span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">pixels = [(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(width * height)]</span><br><span class="line"></span><br><span class="line">img = Image.new(<span class="string">'RGB'</span>, (width, height))</span><br><span class="line">img.putdata(pixels)</span><br><span class="line">img.save(<span class="string">'input.png'</span>)</span><br></pre></td></tr></table></figure>
+<p>Perlu dilakukan beberapa validasi bagaimana binary memproses data PNG, untuk itu dapat dilakukan pengubahan pola warna input menjadi chess tiles atau yang lain.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">... warna hitam</span><br><span class="line">00000000  7f 4b 50 4b c8 00 00 00  c8 00 00 00 ff 00 00 00</span><br><span class="line">00000010  ff 00 00 00 ff 00 00 00  ff 00 00 00 ff 00 00 00</span><br><span class="line">... warna putih</span><br><span class="line">00000000  7f 4b 50 4b c8 00 00 00  c8 00 00 00 ff ff ff ff</span><br><span class="line">00000010  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff</span><br><span class="line">... 253 more</span><br></pre></td></tr></table></figure>
+<p>Dari hasil tersebut, dapat disimpulkan <code>7f4b504b</code> <code>\x7FKPK</code> adalah file signature dan <code>c8...</code> <code>c8...</code> adalah size <code>(width * height)</code> dari file PNG (0xc8 == 200). Untuk warna dari file PNG, dapat diasumsikan ter-encode dalam <strong>RLE</strong> (info didapat dari hint) tanpa ada pengubahan dalam proses membaca data pixel dari gambar (linear read). Dengan begitu, langkah terakhir hanya dibutuhkan script untuk inflate file menjadi raw pixels dan simpan dalam bentuk gambar berukuran (width, height). <a href="/assets/hacktoday/kpk/solver.py">Full solver</a>, </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack</span><br><span class="line"></span><br><span class="line">u32 = <span class="keyword">lambda</span> x : unpack(<span class="string">"&lt;I"</span>, x)[<span class="number">0</span>]</span><br><span class="line">u8 = <span class="keyword">lambda</span> x : unpack(<span class="string">"&lt;B"</span>, x)[<span class="number">0</span>]</span><br><span class="line">uRGB = <span class="keyword">lambda</span> x : unpack(<span class="string">"&lt;BBB"</span>, x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'flag.png.kpk'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read()</span><br><span class="line">    length = len(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span>(data[<span class="number">0</span>:<span class="number">4</span>] == <span class="string">"\x7FKPK"</span>)</span><br><span class="line"></span><br><span class="line">width = u32(data[<span class="number">4</span>:<span class="number">8</span>])</span><br><span class="line">height = u32(data[<span class="number">8</span>:<span class="number">12</span>])</span><br><span class="line"></span><br><span class="line">pos = <span class="number">12</span></span><br><span class="line"></span><br><span class="line">pixels = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> len(pixels) &lt; width * height:</span><br><span class="line">    rl = u8(data[pos:pos+<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(rl):</span><br><span class="line">        pixels.append(uRGB(data[pos+<span class="number">1</span>:pos+<span class="number">4</span>]))</span><br><span class="line">    pos += <span class="number">4</span></span><br><span class="line"></span><br><span class="line">img = Image.new(<span class="string">'RGB'</span>, (width, height))</span><br><span class="line">img.putdata(pixels)</span><br><span class="line">img.save(<span class="string">'flag_recovered.png'</span>)</span><br></pre></td></tr></table></figure>
+<p>Hasilnya,<br><img src="/assets/hacktoday/kpk/flag_recovered.png" alt="flag.png"></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&text=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&is_video=false&description=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HackToday 2018 - Kompeni Pemberantas Korupsi&body=Check out this article: https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&title=HackToday 2018 - Kompeni Pemberantas Korupsi"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/08/05/HackToday-2018-Kompeni-Pemberantas-Korupsi-Editorial/&name=HackToday 2018 - Kompeni Pemberantas Korupsi&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

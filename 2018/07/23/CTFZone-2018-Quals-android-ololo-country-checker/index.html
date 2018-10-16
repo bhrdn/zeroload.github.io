@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="It’s a foreign android application. Let’s try to guess the country!Solves : 9Point : 314. (Dynamic Score)Download :- ololo.8ed245a0a90f801ebf8ccf0676564ff1- native-lib.c- MainActivity.java  123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFZone 2018 Quals - android_ololo_country_checker">
+<meta property="og:url" content="https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="It’s a foreign android application. Let’s try to guess the country!Solves : 9Point : 314. (Dynamic Score)Download :- ololo.8ed245a0a90f801ebf8ccf0676564ff1- native-lib.c- MainActivity.java  123456789">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zeroload.github.io/img/ctfzone2018/ololo1.png">
+<meta property="og:image" content="https://zeroload.github.io/img/ctfzone2018/ololo2.png">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTFZone 2018 Quals - android_ololo_country_checker">
+<meta name="twitter:description" content="It’s a foreign android application. Let’s try to guess the country!Solves : 9Point : 314. (Dynamic Score)Download :- ololo.8ed245a0a90f801ebf8ccf0676564ff1- native-lib.c- MainActivity.java  123456789">
+<meta name="twitter:image" content="https://zeroload.github.io/img/ctfzone2018/ololo1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CTFZone 2018 Quals - android_ololo_country_checker</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/07/28/SlashRoot-2018-SNOW-LAN-D/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/06/02/Security-Fest-CTF-2018-bluepill/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&text=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&is_video=false&description=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CTFZone 2018 Quals - android_ololo_country_checker&body=Check out this article: https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&name=CTFZone 2018 Quals - android_ololo_country_checker&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CTFZone 2018 Quals - android_ololo_country_checker
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-07-23T01:21:09.000Z" itemprop="datePublished">2018-07-23</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>It’s a foreign android application. Let’s try to guess the country!<br><br>Solves : 9<br><br>Point : 314. (Dynamic Score)<br><br>Download :<br><br>- <a href="https://ctf.bi.zone/files/ololo.8ed245a0a90f801ebf8ccf0676564ff1" target="_blank" rel="noopener">ololo.8ed245a0a90f801ebf8ccf0676564ff1</a><br><br>- <a href="/img/ctfzone2018/native-lib.c">native-lib.c</a><br><br>- <a href="/img/ctfzone2018/MainActivity.java">MainActivity.java</a></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">λ › file ololo.8ed245a0a90f801ebf8ccf0676564ff1</span><br><span class="line">ololo.8ed245a0a90f801ebf8ccf0676564ff1: Zip archive data, at least v?[0] to extract</span><br><span class="line">λ › jarsigner -verify ololo.8ed245a0a90f801ebf8ccf0676564ff1</span><br><span class="line"></span><br><span class="line">jar is unsigned.</span><br><span class="line">λ › unzip -l ololo.8ed245a0a90f801ebf8ccf0676564ff1</span><br><span class="line">Archive:  ololo.8ed245a0a90f801ebf8ccf0676564ff1</span><br><span class="line">  Length      Date    Time    Name</span><br><span class="line">---------  ---------- -----   ----</span><br><span class="line">     2592  00-00-1980 00:00   AndroidManifest.xml</span><br><span class="line">       87  00-00-1980 00:00   META-INF/MANIFEST.MF</span><br><span class="line">    15804  00-00-1980 00:00   classes.dex</span><br><span class="line">    36184  00-00-1980 00:00   lib/armeabi-v7a/libnative-lib.so</span><br><span class="line">     2192  00-00-1980 00:00   res/layout/activity_main.xml</span><br><span class="line">   473197  00-00-1980 00:00   res/raw/a123hj1sa.png</span><br><span class="line">   457171  00-00-1980 00:00   res/raw/hjdsajg12.png</span><br><span class="line">   578662  00-00-1980 00:00   res/raw/j4321saa.png</span><br><span class="line">   576558  00-00-1980 00:00   res/raw/kj1234c1.png</span><br><span class="line">   388063  00-00-1980 00:00   res/raw/kjwqre32.png</span><br><span class="line">   578662  00-00-1980 00:00   res/raw/mvke321kjd.png</span><br><span class="line">     1856  00-00-1980 00:00   resources.arsc</span><br><span class="line">---------                     -------</span><br><span class="line">  3111028                     12 files</span><br></pre></td></tr></table></figure>
+<p>APK is unsigned, thus we need to sign the APK first if we’re going to do dynamic analysis. There are many ways to do this, Google it. There is another thing important to note, the native-lib is <strong>armeabi-v7a</strong> specific, it’s better to have a phone support that CPU or use AVD emulator (comes with Android SDK) with armeabi-v7a system image.</p>
+<p>Decompile classes.dex, use <code>apktool</code> for make changes to <code>*.smali</code> and <code>cfr</code> for decompile jar to java, easier to read than smali if you’re not familiar with it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* See attachment above (MainActivity.java) */</span></span><br></pre></td></tr></table></figure>
+<p>We will focus on 2 functions, <code>checkSomethings(int var1)</code> dan <code>getSoBody()</code>.</p>
+<p><code>getSoBody()</code>, unpack partial data from raw resource. The starting point is written at the end of file. Take a look at example,<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">λ › hexdump -C ./res/raw/a123hj1sa.png</span><br><span class="line">...</span><br><span class="line">00060e60  4e ff ff ec df cf fe fd  ec df cf fe fd ec df ff  |N...............|</span><br><span class="line">00060e70  74 ff 7e 46 d0 3f fb f7  b3 7f 3f fb f7 b3 7f ff  |t.~F.?....?.....|</span><br><span class="line">00060e80  53 fe 33 fb 1f f1 <span class="built_in">cd</span> 56  d2 67 53 4d 99 00 00 00  |S.3....V.gSM....|</span><br><span class="line">00060e90  00 49 45 4e 44 ae 42 60  82 dc 16 51 e9 90 1f da  |.IEND.B`...Q....|</span><br><span class="line">00060ea0  fd 79 76 3f 27 f3 01 5e  09 9c 33 64 c8 0f 81 46  |.yv?<span class="string">'..^..3d...F|</span></span><br><span class="line"><span class="string">00060eb0  9e 76 fb 77 ed fa b2 e2  05 97 4b c9 80 fe 2f bc  |.v.w......K.../.|</span></span><br><span class="line"><span class="string">00060ec0  03 3d 57 3c d6 1c 20 61  97 6c e5 a3 2a fe 95 ed  |.=W&lt;.. a.l..*...|</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">00073850  a3 af 0c d5 e3 59 d7 3f  f7 ea 5e b2 bd 7e f4 cc  |.....Y.?..^..~..|</span></span><br><span class="line"><span class="string">00073860  9e 68 3e 77 ac bb 21 d1  46 99 0e 06 00           |.h&gt;w..!.F....|</span></span><br></pre></td></tr></table></figure></p>
+<p><code>IEND ?? ?? ?? ??</code> this is the signature for the end of PNG file, but there are still many trailing data following it. Assume this data is important for later, let’s make a script to unpack it.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">u32 = <span class="keyword">lambda</span> x : unpack(<span class="string">"I"</span>, x)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(sys.argv)):</span><br><span class="line">    <span class="keyword">if</span> sys.argv[i] == sys.argv[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    basename = sys.argv[i].split(<span class="string">'.'</span>)[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> open(sys.argv[i], <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        data = f.read()</span><br><span class="line">        length = end = len(data)</span><br><span class="line">    </span><br><span class="line">    start = u32(data[length<span class="number">-4</span>:length])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> open(basename + <span class="string">'.bin'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(data[start:end<span class="number">-4</span>])</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">λ › <span class="keyword">for</span> i <span class="keyword">in</span> $(ls ./res/raw | grep .bin); <span class="keyword">do</span>; <span class="built_in">echo</span> <span class="variable">$i</span> $(cat <span class="variable">$i</span> | wc -c); <span class="keyword">done</span></span><br><span class="line">a123hj1sa.bin 76240</span><br><span class="line">hjdsajg12.bin 76240</span><br><span class="line">j4321saa.bin 76240</span><br><span class="line">kj1234c1.bin 76240</span><br><span class="line">kjwqre32.bin 76240</span><br><span class="line">mvke321kjd.bin 76240</span><br></pre></td></tr></table></figure>
+<p>Okay, this is getting interesting. The data we have are the same size, moreover it’s a multiples of 16 <code>(76240 % 16 == 0)</code>. The fact that all the data dosn’t make sense, we can assume that we are dealing with some sort of block cipher later.</p>
+<p><code>checkSomethings(int var1)</code> is a native function, so we have to open libnative-lib.so in disassembler/decompiler.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* See attachment above (native-lib.c) */</span></span><br></pre></td></tr></table></figure>
+<p>Woa. this. is. huge. The actual deompiled from IDA doesn’t have all these nice variables and functions name. The first thing I did was reading it from the bottom part. The last function before return called piqued my interest, because it calls <code>getSoBody()</code> and <code>getSoPath()</code> from java, after that, the data returned from <code>getSoBody()</code> passed to another function. The function use some constant which you can guess, sbox from AES. So, we know that the app uses AES to decrypt data from raw resource, but what about the keys?</p>
+<p>The keys are crc32 calculated from some ID in android (<code>Line1Number</code>, <code>deviceID</code>, <code>subscriberID</code>, <code>packageName</code>, <code>sdk_ver</code>, <code>simCountryISO</code>). The hint for correct string are md5sum in <code>.data</code> section (<code>byte_XXXX</code>). You can see that in <code>checkSomethings(int)</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ( md5_deviceID[v57] == byte_9729[v57] )</span><br><span class="line">&#123;</span><br><span class="line">  v39 = __OFSUB__(v57, <span class="number">14</span>);</span><br><span class="line">  v37 = v57 == <span class="number">14</span>;</span><br><span class="line">  v38 = v57++ - <span class="number">14</span> &lt; <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> ( !((<span class="keyword">unsigned</span> __int8)(v38 ^ v39) | v37) )</span><br><span class="line">  &#123;</span><br><span class="line">    dword_9AA8[<span class="number">4</span>] |= <span class="number">1u</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Looking up the hash value online, we could know what’s the correct strings.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">phone    = 8203412(03bec67d849e7114f1a828e1628495fe)/7793952(c377ec2ae9bc906448b6c39326e42f04)</span><br><span class="line">deviceID = 89123988(e176e3acf427e59308520009b3e2a793)/01982375(b400b6e082104ce63f18f45e64c2fbfd)</span><br><span class="line">iso_code = KZ(4aceb7d6b4564ec96bc6605cd5af37e7)/KG(56d721ccadb8bbfd8b47390d82a6ea4b)</span><br><span class="line">subscriberID = 31231712(5b529e731eab2fb96185b0e9769fc498)</span><br><span class="line">sdk_ver  = 19(1f0e3dad99908345f7439f8ffabdffc4)</span><br><span class="line">package_name = ololo.ololo.ololo(5b4802bc02112666dabafe0c77ac18d0)</span><br></pre></td></tr></table></figure></p>
+<p>There’s a problem though, assuming all of it as correct, some calculated md5 are checked 2 times, which means there will be 2 options for the correct string. From this point static analysis just getting hazy. Thus, i just decided to use all the possible options. There are only 3 ID with 2 options, (<code>2*2*2 = 8</code>) which will ends up with 8 possible combination, enough to do it by hands xD.</p>
+<p>Rather than directly modify smali files (It’ll took too much time since you’ll need to modify, recompile, sign, and install. again and again), It’s better to use things like <code>xposed</code> or <code>frida</code>. I used frida because it’s easy to setup in emulator. Here’s the final frida script,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> JavaString = Java.use(<span class="string">'java.lang.String'</span>);</span><br><span class="line">    <span class="keyword">var</span> EADB = Java.use(<span class="string">"aaa.aie.eadb"</span>);</span><br><span class="line">    EADB.headb.implementation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Called - aaa.aib.aib()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> EKPN = Java.use(<span class="string">"aaa.aie.ekpn"</span>); <span class="comment">// PhoneNumber</span></span><br><span class="line">    EKPN.egln.implementation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Called - aaa.aie.ekpn.egln()"</span>);</span><br><span class="line">        <span class="comment">// return "7793952";</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"8203412"</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> EKD = Java.use(<span class="string">"aaa.aie.ekd"</span>); <span class="comment">// DeviceId</span></span><br><span class="line">    EKD.egdi.implementation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Called - aaa.aie.ekd.egdi()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"89123988"</span>;</span><br><span class="line">        <span class="comment">// return "01982375";</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> EKL = Java.use(<span class="string">"aaa.aie.ekl"</span>); <span class="comment">// SimIsoCountry</span></span><br><span class="line">    EKL.egsci.implementation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Called - aaa.aie.ekl.egcsi()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"KZ"</span>;</span><br><span class="line">        <span class="comment">// return "KG";</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// var EKA = Java.use("aaa.aie.eka");</span></span><br><span class="line">    <span class="comment">// EKA.ega.implementation = function () &#123;</span></span><br><span class="line">    <span class="comment">//     console.log("Called - aaa.aie.eka.ega()");</span></span><br><span class="line">    <span class="comment">//     return JavaString.$new("19");</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// EKA.egn.implementation = function () &#123;</span></span><br><span class="line">    <span class="comment">//     console.log("Called - aaa.aie.eka.egn()");</span></span><br><span class="line">    <span class="comment">//     return "ololo.ololo.ololo";</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> EKI = Java.use(<span class="string">"aaa.aie.eki"</span>);</span><br><span class="line">    EKI.egsi.implementation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Called - aaa.aie.eki.egsi()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"31231712"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Java.choose(<span class="string">"ololo.ololo.ololo.MainActivity"</span>, &#123;</span><br><span class="line">        onMatch : <span class="function"><span class="keyword">function</span>(<span class="params">instance</span>) </span>&#123;</span><br><span class="line">            instance.e.value = <span class="number">0</span>;</span><br><span class="line">            instance.c.value = <span class="number">0</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        onComplete : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Run the app, attach frida with the script above, boom, got the flag,</p>
+<p><img src="/img/ctfzone2018/ololo1.png" alt=""><br><img src="/img/ctfzone2018/ololo2.png" alt=""></p>
+<center><code>FLAG : ctfzone{1t_1s_0l0l0_g00d_4tt6mpt}</code></center>
+
+<hr>
+<p>Some notes and failed attack ideas. The first approach was static analysis and rewrite all of important function in C to decrypt raw data. The result? It fails miserably, it took me 1 hour to get to know frida and the flag, while rewrite took me 8 hours (8 hours of coding, mostly contemplating and asking what the fck am I doing for of not getting any progress. sad.) While the first reverse engineer part (decompile, analysis, and stuff) took me 1-2 hours. Yep, better to get another unique ideas if you are stuck for a long time. <del>but how? idk. sad.</del></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&text=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&is_video=false&description=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CTFZone 2018 Quals - android_ololo_country_checker&body=Check out this article: https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&title=CTFZone 2018 Quals - android_ololo_country_checker"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/07/23/CTFZone-2018-Quals-android-ololo-country-checker/&name=CTFZone 2018 Quals - android_ololo_country_checker&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

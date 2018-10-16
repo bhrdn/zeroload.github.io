@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Downloads: id.hacktoday.thisis.not.a.game.apk solver.py xxtea.py  1cocos2dlua, Kill the Bug introAda beberapa tahapan recon yang perlu dilakukan sebelum masuk ke reverse engineering. Judul sendiri su">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackToday 2018 - not &#x2F;a&#x2F;game">
+<meta property="og:url" content="https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="Downloads: id.hacktoday.thisis.not.a.game.apk solver.py xxtea.py  1cocos2dlua, Kill the Bug introAda beberapa tahapan recon yang perlu dilakukan sebelum masuk ke reverse engineering. Judul sendiri su">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HackToday 2018 - not &#x2F;a&#x2F;game">
+<meta name="twitter:description" content="Downloads: id.hacktoday.thisis.not.a.game.apk solver.py xxtea.py  1cocos2dlua, Kill the Bug introAda beberapa tahapan recon yang perlu dilakukan sebelum masuk ke reverse engineering. Judul sendiri su">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>HackToday 2018 - not /a/game</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/09/09/noxCTF-2018-Grocery-List/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/09/03/HackToday-2018-faile/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&text=HackToday 2018 - not /a/game"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&is_video=false&description=HackToday 2018 - not /a/game"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HackToday 2018 - not /a/game&body=Check out this article: https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&name=HackToday 2018 - not /a/game&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#recon"><span class="toc-number">2.</span> <span class="toc-text">recon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reversing"><span class="toc-number">3.</span> <span class="toc-text">reversing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solver"><span class="toc-number">4.</span> <span class="toc-text">solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rants"><span class="toc-number">5.</span> <span class="toc-text">rants</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        HackToday 2018 - not /a/game
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-05T15:42:44.000Z" itemprop="datePublished">2018-09-05</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>Downloads:</p>
+<p><a href="/assets/hacktoday/notagame/id.hacktoday.thisis.not.a.game.apk">id.hacktoday.thisis.not.a.game.apk</a></p>
+<p><a href="/assets/hacktoday/notagame/unluac.py">solver.py</a></p>
+<p><a href="/assets/hacktoday/notagame/xxtea.py">xxtea.py</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cocos2dlua, Kill the Bug</span><br></pre></td></tr></table></figure>
+<h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>Ada beberapa tahapan recon yang perlu dilakukan sebelum masuk ke reverse engineering. Judul sendiri sudah menjelaskan kalau aplikasi ini bukan game, dilihat dari jangka waktu lomba sendiri, tidak mungkin peserta memainkan sebuah game untuk mematikan serangga sebanyak 73311337 kali untuk mendapatkan flag. Meskipun sudah memakai program tambahan untuk <em>nge-cit</em>, flag tidak akan keluar (intended). Terus gimana?</p>
+<h2 id="recon"><a href="#recon" class="headerlink" title="recon"></a>recon</h2><p>Sedikit info dari hint dan skill gugel, cocos2dlua merupakan salah satu <strong><em>open source</em></strong> game engine yang lumayan banyak dipakai pada OS Android dan Kill the Bug meruapakan contoh sample project untuk game engine cocos2dlua (<a href="https://github.com/cocos2d/cocos2d-x-samples" target="_blank" rel="noopener">cocos2d-x/cocos2d-x-samples</a>). Sebagian isi dari APK sendiri secara singkat seperti berikut,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">λ › ls -l assets/src/</span><br><span class="line">total 20K</span><br><span class="line">drwxr-xr-x  4 zero zero 4096 Sep  5 22:54 app</span><br><span class="line">drwxr-xr-x 14 zero zero 4096 Sep  5 22:54 cocos</span><br><span class="line">-rw-r--r--  1 zero zero  670 Dec 31  1979 config.luac</span><br><span class="line">-rw-r--r--  1 zero zero  358 Dec 31  1979 main.luac</span><br><span class="line">drwxr-xr-x  3 zero zero 4096 Sep  5 22:54 packages</span><br><span class="line">λ › </span><br><span class="line">λ › hexdump -n 16 -C ./assets/src/config.luac</span><br><span class="line">00000000  58 58 54 45 41 43 52 59  50 54 4b 43 12 4b 23 97  |XXTEACRYPTKC.K#.|</span><br><span class="line">λ › hexdump -n 16 -C ./assets/src/main.luac</span><br><span class="line">00000000  58 58 54 45 41 43 52 59  50 54 a4 61 43 31 00 f4  |XXTEACRYPT.aC1..|</span><br><span class="line">λ › hexdump -n 16 -C ./assets/src/app/MyApp.luac</span><br><span class="line">00000000  58 58 54 45 41 43 52 59  50 54 a9 b2 fa 7e df 4c  |XXTEACRYPT...~.L|</span><br></pre></td></tr></table></figure></p>
+<p>Oops, bukan plaintext lua yang didapat tapi beberapa file dengan header yang hampir sama. Header pada file ini sebenarnya adalah hint lanjutan dalam soal ini. <code>XXTEACRYPT</code> ini adalah salah satu jenis block crypto yang digunakan cocos2dlx-lua untuk enkripsi source code gamenya.</p>
+<h2 id="reversing"><a href="#reversing" class="headerlink" title="reversing"></a>reversing</h2><p>Source code dari game ada di <a href="https://github.com/cocos2d/cocos2d-x-samples/blob/v3/samples/KillBug/" target="_blank" rel="noopener">https://github.com/cocos2d/cocos2d-x-samples/blob/v3/samples/KillBug/</a> karena mau fokus mencari bagaimana dekripsi dari file luac, yang perlu diperhatikan bukan di Java atau Lua, tapi implementasi di native C{,++} itu sendiri. Dengan <em>grep</em>-ing dengan keyword XXTEA, didapat bagian yang menarik, yakni <a href="https://github.com/cocos2d/cocos2d-x-samples/blob/9f1472d9083a18853bb1fe97a337292f42abe44a/samples/KillBug/frameworks/runtime-src/Classes/AppDelegate.cpp#L67-L68" target="_blank" rel="noopener">src</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> AppDelegate::applicationDidFinishLaunching()</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    LuaStack* <span class="built_in">stack</span> = engine-&gt;getLuaStack();</span><br><span class="line">    <span class="built_in">stack</span>-&gt;setXXTEAKeyAndSign(<span class="string">"2dxLua"</span>, <span class="built_in">strlen</span>(<span class="string">"2dxLua"</span>), <span class="string">"XXTEA"</span>, <span class="built_in">strlen</span>(<span class="string">"XXTEA"</span>));</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Dari sini sudah terlihat jelas bagaimana game mem-<em>prepare</em> untuk mendekripsi luac. Dalam contoh diatas <code>2dxLua</code> adalah key untuk dekripsi luac. Lanjut ke analisa di APK sendiri, native-lib ada di <code>lib/armeabi-v7a/libcocos2dlua.so</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">.text:00AD2E00 ; AppDelegate::applicationDidFinishLaunching(void)</span><br><span class="line">.text:00AD2E00                 EXPORT _ZN11AppDelegate29applicationDidFinishLaunchingEv</span><br><span class="line">.text:00AD2E00 _ZN11AppDelegate29applicationDidFinishLaunchingEv</span><br><span class="line">...</span><br><span class="line">.text:00AD2E4E                 LDR             R1, [SP,#0xA0+var_48]</span><br><span class="line">.text:00AD2E50                 STR             R0, [SP,#0xA0+var_64]</span><br><span class="line">.text:00AD2E52                 MOV             R0, R1</span><br><span class="line">.text:00AD2E54                 BLX.W           j__ZN7cocos2d9LuaEngine11getLuaStackEv ; cocos2d::LuaEngine::getLuaStack(void)</span><br><span class="line">.text:00AD2E58                 STR             R0, [SP,#0xA0+var_50]</span><br><span class="line">.text:00AD2E5A                 LDR             R0, [SP,#0xA0+var_50]</span><br><span class="line">.text:00AD2E5C                 LDR             R1, [R0]</span><br><span class="line">.text:00AD2E5E                 LDR             R1, [R1,#0x74]</span><br><span class="line">.text:00AD2E60                 MOV             R2, SP</span><br><span class="line">.text:00AD2E62                 MOV.W           LR, #0xA</span><br><span class="line">.text:00AD2E66                 STR.W           LR, [R2,#0xA0+var_A0]</span><br><span class="line">.text:00AD2E6A                 LDR             R2, =(aAkukamumemangj - 0xAD2E70)</span><br><span class="line">.text:00AD2E6C                 ADD             R2, PC  ; &quot;akukamumemangjos&quot;</span><br><span class="line">.text:00AD2E6E                 LDR.W           LR, =(aXxteacrypt - 0xAD2E76)</span><br><span class="line">.text:00AD2E72                 ADD             LR, PC  ; &quot;XXTEACRYPT&quot;</span><br><span class="line">.text:00AD2E74                 MOVS            R3, #0x10</span><br><span class="line">.text:00AD2E76                 STR             R1, [SP,#0xA0+var_68]</span><br><span class="line">.text:00AD2E78                 MOV             R1, R2</span><br><span class="line">.text:00AD2E7A                 MOV             R2, R3</span><br><span class="line">.text:00AD2E7C                 MOV             R3, LR</span><br><span class="line">.text:00AD2E7E                 LDR.W           LR, [SP,#0xA0+var_68]</span><br><span class="line">.text:00AD2E82                 BLX             LR</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>Terlihat familiar? kurang lebih dalam pseudo-C<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> AppDelegate::applicationDidFinishLaunching(<span class="keyword">void</span>)</span><br><span class="line">...</span><br><span class="line"><span class="built_in">stack</span> = cocos::LuaEngine::getLuaStack();</span><br><span class="line">*(<span class="built_in">stack</span> + <span class="number">0x74</span>)(<span class="keyword">this</span>???, <span class="string">"akukamumemangjos"</span>, <span class="number">0x10</span>, <span class="string">"XXTEACRYPT"</span>, <span class="number">0xA</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>yep, key untuk xxtea adalah <code>akukamumemangjos</code>. Langkah terakhir hanya perlu membuat solver untuk dekripsi file luac.</p>
+<h2 id="solver"><a href="#solver" class="headerlink" title="solver"></a>solver</h2><p>Full solver, implementasi xxtea di cocos2d-x bisa dilihat di <a href="https://github.com/cocos2d/cocos2d-x-samples/blob/9f1472d9083a18853bb1fe97a337292f42abe44a/samples/SwiftTetris/cocos2d/external/xxtea/xxtea.cpp" target="_blank" rel="noopener">https://github.com/cocos2d/cocos2d-x-samples/blob/9f1472d9083a18853bb1fe97a337292f42abe44a/samples/SwiftTetris/cocos2d/external/xxtea/xxtea.cpp</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">import os</span><br><span class="line">import argparse</span><br><span class="line"></span><br><span class="line">from xxtea import decrypt, encrypt</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser(description=&apos;Decrypt/Encrypt XXTEA Block chiper recursively in a folder&apos;)</span><br><span class="line">parser.add_argument(&quot;-d&quot;, &quot;--dir&quot;, help=&quot;Input directory&quot;, required=True)</span><br><span class="line">parser.add_argument(&quot;-k&quot;, &quot;--key&quot;, help=&quot;Key for decryption&quot;, required=True)</span><br><span class="line">parser.add_argument(&quot;-s&quot;, &quot;--sign&quot;, help=&quot;File signature&quot;, required=True)</span><br><span class="line">parser.add_argument(&quot;-o&quot;, &quot;--out&quot;, help=&quot;Output directory&quot;)</span><br><span class="line">parser.add_argument(&quot;-vv&quot;, &quot;--verbose&quot;, help=&quot;Verbose output&quot;, action=&quot;store_true&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">curdir = args.dir</span><br><span class="line"></span><br><span class="line">for file in os.listdir(curdir):</span><br><span class="line">	curfile = curdir + &apos;/&apos; + file</span><br><span class="line">	print(&apos;\n\n&apos; + curfile + &apos;\n\n&apos;)</span><br><span class="line">	if not os.path.isdir(curfile):</span><br><span class="line">		fp = open(curfile, &apos;rb&apos;)</span><br><span class="line">		raw = fp.read()</span><br><span class="line">		if raw[:len(args.sign)] == args.sign:</span><br><span class="line">			print(decrypt(raw[len(args.sign):], args.key))</span><br><span class="line">		else:</span><br><span class="line">			print(&apos;Error!&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>Quick run,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">λ › python unluac.py -d assets/src/app/views/ -k akukamumemangjos -s XXTEACRYPT|grep Hack</span><br><span class="line">       -- local flag = string.format(&quot;FLAG: HackToday&#123;c0mpil3_to_byt3c0de_t0_rem0ve__d3bug_1nf0_1n_c0mment&#125;&quot;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="rants"><a href="#rants" class="headerlink" title="rants"></a>rants</h2><p>Soal ini sebenernya dari pengalaman lama pribadi, lagi reversing game untuk belajar <del>cheat</del>, eh, ketemu masalah file luac yang terenkripsi. Setelah berhasil dekripsi ternyata beberapa developer game (ini testing hampir ke semua top list di play store yang pakai game engine cocos2d-x lua) masih membiarkan beberapa debug info dan password untuk akses server db game. Baru sadar setelah lomba juga, writeup seperti ini sebenarnya udah pernah ditulis di blog lama, tapi kayanya juga udah hilang entah kemana tersisa hanya tulisan copy-paste dari orang lain.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#recon"><span class="toc-number">2.</span> <span class="toc-text">recon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reversing"><span class="toc-number">3.</span> <span class="toc-text">reversing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solver"><span class="toc-number">4.</span> <span class="toc-text">solver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rants"><span class="toc-number">5.</span> <span class="toc-text">rants</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&text=HackToday 2018 - not /a/game"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&is_video=false&description=HackToday 2018 - not /a/game"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HackToday 2018 - not /a/game&body=Check out this article: https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&title=HackToday 2018 - not /a/game"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/09/05/HackToday-2018-not-a-game/&name=HackToday 2018 - not /a/game&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

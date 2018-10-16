@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="I was experiencing something like can’t login with Kakao when the app has been tampered. After going some trials and errors, I’ve found out that it requires Signature hash check for Login in. In com.k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bypassing Kakao Login Signature Check for Tampered Android Application">
+<meta property="og:url" content="https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="I was experiencing something like can’t login with Kakao when the app has been tampered. After going some trials and errors, I’ve found out that it requires Signature hash check for Login in. In com.k">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bypassing Kakao Login Signature Check for Tampered Android Application">
+<meta name="twitter:description" content="I was experiencing something like can’t login with Kakao when the app has been tampered. After going some trials and errors, I’ve found out that it requires Signature hash check for Login in. In com.k">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Bypassing Kakao Login Signature Check for Tampered Android Application</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/11/24/agrihack-0x2-lift-rektorat-writeup/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/07/10/the-revival/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&text=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&is_video=false&description=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Bypassing Kakao Login Signature Check for Tampered Android Application&body=Check out this article: https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&name=Bypassing Kakao Login Signature Check for Tampered Android Application&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Bypassing Kakao Login Signature Check for Tampered Android Application
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-23T04:48:14.000Z" itemprop="datePublished">2017-11-23</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>I was experiencing something like can’t login with Kakao when the app has been tampered. After going some trials and errors, I’ve found out that it requires Signature hash check for Login in. In <code>com.kakao.util.helper.Utility</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getKeyHash</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">    String str = <span class="keyword">null</span>;</span><br><span class="line">    PackageInfo packageInfo = getPackageInfo(context, <span class="number">64</span>);</span><br><span class="line">    <span class="keyword">if</span> (packageInfo != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Signature\[\] signatureArr = packageInfo.signatures;</span><br><span class="line">        <span class="keyword">int</span> length = signatureArr.length;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; length) &#123;</span><br><span class="line">            Signature signature = signatureArr\[i\];</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                MessageDigest md = MessageDigest.getInstance(<span class="string">"SHA"</span>);</span><br><span class="line">                <span class="keyword">byte</span>\[\] toByteArray = signature.toByteArray();</span><br><span class="line">                md.update(signature.toByteArray());</span><br><span class="line">                str = Base64.encodeToString(md.digest(), <span class="number">2</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">                Log.w(TAG, <span class="string">"Unable to get MessageDigest. signature="</span> + signature, e);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This function returns the application signature SHA1 hash encoded in base64. Sure enough I just need replace <code>str</code> with original application signature to prevent apps using my crafted signature but thats <em><strong>too plain.</strong></em> I want a library that can be used again in the future if need it. So, my approach was using this another handcrafted class to return Signature.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.content.pm.Signature;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xSign</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String bits = <span class="string">"3082037130820259a003..............."</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>\[\] <span class="keyword">byte</span> = <span class="keyword">new</span> BigInteger(bits, <span class="number">16</span>).toByteArray();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Signature\[\] arraySig() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Signature\[\] &#123; <span class="keyword">new</span> Signature(bits) &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This looks a bit nasty, but it works. How this code should be used? copy Actual application signature hex encoded into <code>Signature bits</code>. As a /skid/ that needz toolz, use lohan+ tool for extracting signature from APK, from there you could get the APK signature bits too. (<a href="http://androidcracking.blogspot.com/2010/12/getting-apk-signature-outside-of.html" target="_blank" rel="noopener">http://androidcracking.blogspot.com/2010/12/getting-apk-signature-outside-of.html</a>) Then, do change code into something looks like this.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MessageDigest md = MessageDigest.getInstance(<span class="string">"SHA"</span>);</span><br><span class="line"><span class="keyword">byte</span>\[\] toByteArray = signature.toByteArray();</span><br><span class="line">md.update(xSign.<span class="keyword">byte</span>);</span><br><span class="line">str = Base64.encodeToString(md.digest(), <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>All is set, recompile the code, run application, then profit. I could login with Kakao in a modified application. What have I learned from this? Signature checking isn’t really proof from a <em>skid</em> to reverse engineer application. This code might come in handy if someone really need to <em>spoof</em> the Application signature.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&text=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&is_video=false&description=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Bypassing Kakao Login Signature Check for Tampered Android Application&body=Check out this article: https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&title=Bypassing Kakao Login Signature Check for Tampered Android Application"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/&name=Bypassing Kakao Login Signature Check for Tampered Android Application&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

