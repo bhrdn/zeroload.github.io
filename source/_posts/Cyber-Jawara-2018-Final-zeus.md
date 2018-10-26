@@ -9,9 +9,9 @@ categories: pwn
 > In-memory key-value database server like Redis and Memcache is widely used for caching in a production server. Can you pwn this key-value database service? You need to reverse engineered it first to know what data structure is used for storing the data. This service is also run with sandbox. For patching, you are only allowed to patch 32 bytes in 'zeus' binary and only 2 bytes in 'zeus_sandbox'. For this service, all attack points are multiplied by 2x.
 
 > Downloads :
-> [zeus](/assets/zeus/zeus)
-> [libc-2.28-9dc614ec33ee0284064ec5535bda431c.so](/assets/zeus/libc-2.28-9dc614ec33ee0284064ec5535bda431c.so)
-> [solve.py](/assets/zeus/solve.py)
+> [zeus](/assets/cj/zeus/zeus)
+> [libc-2.28-9dc614ec33ee0284064ec5535bda431c.so](/assets/cj/zeus/libc-2.28-9dc614ec33ee0284064ec5535bda431c.so)
+> [solve.py](/assets/cj/zeus/solve.py)
 
 ```
 λ › ./zeus
